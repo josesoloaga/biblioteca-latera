@@ -1,25 +1,36 @@
+import React from "react";
 import { useForm } from "react-hook-form";
 
-type FormInputs = {
-  title: string;
+type dataInput = {
+  handleSetTitulo: (titulo: string) => void;
+  handleSetEditorial: (editorial: string) => void;
+};
+
+type formData = {
+  titulo: string;
   editorial: string;
 };
 
-export const AddBook = (props) => {
-  const { setTitle, setEditorial } = props;
-
-  const { register, handleSubmit } = useForm<FormInputs>();
-  const onSubmit = (data: FormInputs) => {
-    setTitle(data.title);
-    setEditorial(data.editorial);
+export const AddBook = ({ handleSetTitulo, handleSetEditorial }: dataInput ) => {
+  const {
+    register,
+    handleSubmit,
+/*     formState: { errors }, */
+  } = useForm<formData>();
+  const onSubmit = (data: formData) => {
+    handleSetTitulo(data.titulo);
+    handleSetEditorial(data.editorial);
   };
+
+/*   console.log(errors); */
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="title">Titulo:</label>
-      <input id="title" placeholder="escribe aquí..." {...register("title")}></input>
-      <label htmlFor="editorial">Editorial:</label>
-      <input id="editorial" placeholder="escribe aquí..." {...register("editorial")}></input>
+      <label htmlFor="titulo">Titulo:</label>
+      <input type="text" placeholder="escribe aqui..." {...register("titulo", { required: true, maxLength: 80 })} />
+      <label htmlFor="editorial"></label>
+      <input type="text" placeholder="escribe aqui..." {...register("editorial", { required: true, maxLength: 80 })} />
+
       <input type="submit" />
     </form>
   );

@@ -1,18 +1,25 @@
-
-import { useEffect, useState } from 'react';
-import './App.css';
-import { AddBook } from './components/AddBook';
-import { ListBook } from './components/ListBook';
+import { useState } from "react";
+import "./App.css";
+import { AddBook } from "./components/AddBook";
 
 function App() {
+  const [titulo, setTitulo] = useState("");
+  const [editorial, setEditorial] = useState("");
+console.log(titulo);
+console.log(editorial);
 
-  const [title, setTitle]= useState("")
-  const [editorial, setEditorial] = useState("")
+
+  const handleSetTitulo = (titulo: string) => {
+    setTitulo(titulo);
+  };
+
+  const handleSetEditorial = (editorial: string) => {
+    setEditorial(editorial);
+  };
 
   return (
     <div className="App">
-<AddBook setTitle= {setTitle} setEditorial={setEditorial}/>
-<ListBook title= {title} editorial= {editorial}/>
+      <AddBook handleSetTitulo={handleSetTitulo} handleSetEditorial={handleSetEditorial} />
     </div>
   );
 }
