@@ -1,4 +1,4 @@
-import { Book } from "src/domain/book"
+import { Book } from "../../domain/book"
 
 export const createBookMock = (): Book => {
     return {
