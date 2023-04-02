@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Login from "src/ui/features/login/login-component";
 import { AddBook } from "../ui/features/add-book/add-book-componets";
 
-function Home() {
+const HomePage = ()=>  {
   const [titulo, setTitulo] = useState("");
   const [editorial, setEditorial] = useState("");
   const [books, setBooks] = useState([]);
@@ -31,4 +30,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;
