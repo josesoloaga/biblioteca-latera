@@ -1,33 +1,28 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Book } from "../../domain/book";
 
-type dataInput = {
+type AddBookProps = {
   handleSetTitulo: (titulo: string) => void;
   handleSetEditorial: (editorial: string) => void;
 };
-
-type formData = {
-  titulo: string;
-  editorial: string;
-};
-
-export const AddBook = ({ handleSetTitulo, handleSetEditorial }: dataInput ) => {
+export const AddBook: React.FC<AddBookProps> = ({ handleSetTitulo, handleSetEditorial }) => {
   const {
     register,
     handleSubmit,
-/*     formState: { errors }, */
-  } = useForm<formData>();
-  const onSubmit = (data: formData) => {
-    handleSetTitulo(data.titulo);
+    /*     formState: { errors }, */
+  } = useForm<Book>();
+  const onSubmit = (data: Book) => {
+    // handleSetTitulo(data.titulo);
     handleSetEditorial(data.editorial);
   };
 
-/*   console.log(errors); */
+  /*   console.log(errors); */
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="titulo">Titulo:</label>
-      <input type="text" placeholder="escribe aqui..." {...register("titulo", { required: true, maxLength: 80 })} />
+      {/*  <input type="text" placeholder="escribe aqui..." {...register("titulo", { required: true, maxLength: 80 })} /> */}
       <label htmlFor="editorial"></label>
       <input type="text" placeholder="escribe aqui..." {...register("editorial", { required: true, maxLength: 80 })} />
 
