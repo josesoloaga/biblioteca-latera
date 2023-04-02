@@ -9,6 +9,14 @@ const styles = {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    `,
+    input: css`
+    width: 100%;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 0 10px;
     `
 }
 const Login = () => {
@@ -25,8 +33,8 @@ const Login = () => {
   return (
     <>
       <div css={styles.container} data-testid='login-component'>
-        <input onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Introduce tu email" />
-        <input type="text" placeholder="Introduce tu password" onChange={(e) => setPassword(e.target.value)} />
+        <input css={styles.input} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Introduce tu email" />
+        <input css={styles.input} type="text" placeholder="Introduce tu password" onChange={(e) => setPassword(e.target.value)} />
         <button onClick={singUp}>Login</button>
       </div>
     </>
