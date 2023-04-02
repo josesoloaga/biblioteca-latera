@@ -1,31 +1,12 @@
-import { useState } from "react";
-import { AddBook } from "../ui/features/add-book/add-book-componets";
+import React from "react";
+import ListBook from "src/ui/features/list-book/list-book-component";
 
 const HomePage = ()=>  {
-  const [titulo, setTitulo] = useState("");
-  const [editorial, setEditorial] = useState("");
-  const [books, setBooks] = useState([]);
 
-  console.log(titulo);
-  console.log(editorial);
-
-  /*   const handleSetBooks = ()=>{
-    setBooks()
-  } */
-
-  const handleSetTitulo = (titulo: string) => {
-    setTitulo(titulo);
-  };
-
-  const handleSetEditorial = (data: string) => {
-    setEditorial(data);
-  };
-
- 
 
   return (
     <div className="Home">
-    <AddBook handleSetTitulo={handleSetTitulo} handleSetEditorial={handleSetEditorial} />
+      <ListBook />
     </div>
   );
 }
