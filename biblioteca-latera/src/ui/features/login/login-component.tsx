@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { createUser } from "src/api/user-data/create-user";
+import { createUser } from "../../../api/user-data/create-user";
+import { useNavigate } from "react-router-dom";
 
-type LoginProps = {
-  handleSteps: (step: number) => void;
-};
-const Login: React.FC<LoginProps> = ({ handleSteps }) => {
+const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const navigate = useNavigate()
 
   const singUp = async () => {
     const logedUser = createUser({ email, password });
     console.log(logedUser);
 
-    handleSteps(1);
+    navigate('/home')
   };
   return (
     <>

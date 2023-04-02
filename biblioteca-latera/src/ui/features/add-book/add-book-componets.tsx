@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Book } from "../../domain/book";
+import { Book } from "../../../domain/book";
 
 type AddBookProps = {
   handleSetTitulo: (titulo: string) => void;

@@ -1,16 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Home from "./pages/Home";
-import reportWebVitals from "./reportWebVitals";
+import { Provider } from 'react-supabase'
+import { supabase } from "./api/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Login from "./ui/features/login/login-component";
+const router = createBrowserRouter([
+  {
+      path: '/home',
+      element: <Home />,
+  },
+  {
+      path: '/',
+      element: <Login  />,
+  },
+
+])
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
-    <Home />
+    <Provider value={supabase}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 );
 
-// If you want to start measuring performance in your Home, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
