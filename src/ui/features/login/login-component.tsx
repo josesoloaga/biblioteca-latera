@@ -6,11 +6,12 @@ import {
   StyledCard,
   StyledContainer,
   StyledInput,
-  StyledTitle,
+  StyledLogo,
 } from './login-styled-components';
 import { validateEmail } from '../../../domain/utils';
 import { useAppContext } from '../../../config-adapters/context-provider';
 import Instructions from './instrucciones-component';
+import Logo from '../../../assets/logo.jpeg'
 
 const Login = () => {
   const [email, setEmail] = useState<string | undefined>();
@@ -45,7 +46,7 @@ const Login = () => {
   return (
     <>
       <StyledContainer data-testid="login-component">
-        <StyledTitle>Bienvenido a la Biblioteca Latera </StyledTitle>
+        <StyledLogo src={Logo} alt="Logo" />
         <div
           style={{
             display: 'flex',

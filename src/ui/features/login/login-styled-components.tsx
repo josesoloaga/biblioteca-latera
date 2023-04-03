@@ -7,13 +7,10 @@ export const StyledContainer = styled.div`
   justify-content: center;
   gap: 50px;
   height: 100vh;
-  background-color: #4158d0;
-  background-image: linear-gradient(
-    43deg,
-    #4158d0 0%,
-    #c850c0 46%,
-    #ffcc70 100%
-  );
+  background-color: #3759F2;
+  background-image: linear-gradient(45deg, #3759F2 0%, #99DEE6 100%);
+  
+  
 `;
 
 export const StyledInput = styled.input`
@@ -51,3 +48,7 @@ export const StyledTitle = styled.h1`
   color: #fff;
   font-size: 2rem;
 `;
+
+export const StyledLogo = styled.img`
+  width: 200px;
+  `

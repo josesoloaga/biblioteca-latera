@@ -8,13 +8,16 @@ import { Book } from '../domain/book';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
   align-items: center;
-  margin: 50px;
+  background-color: #3759F2;
+  background-image: linear-gradient(45deg, #3759F2 0%, #99DEE6 100%); 
 `;
 
 const Header = styled.header`
   text-align: center;
   margin-bottom: 30px;
+  margin-top: 30px;
 `;
 
 const Title = styled.h1`
