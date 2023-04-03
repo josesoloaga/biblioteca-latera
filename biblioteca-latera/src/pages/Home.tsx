@@ -1,10 +1,9 @@
-import React from "react";
-import ListBook from "../ui/features/list-book/list-book-component";
-import { useAppContext } from "../config-adapters/context-provider";
+import React from 'react';
+import ListBook from '../ui/features/list-book/list-book-component';
+import { useAppContext } from '../config-adapters/context-provider';
 
-const HomePage = ()=>  {
-  const {user} = useAppContext()
-
+const HomePage = () => {
+  const { user } = useAppContext();
 
   return (
     <div className="Home">
@@ -12,6 +11,6 @@ const HomePage = ()=>  {
       <ListBook />
     </div>
   );
-}
+};
 
 export default HomePage;

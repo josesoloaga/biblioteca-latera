@@ -1,13 +1,7 @@
-import React from "react"
+import React from 'react';
 
+const ListBook = () => {
+  return <ul></ul>;
+};
 
-const ListBook = ()=>{
-
-
-    return(
-        <ul>
-        </ul>
-    )
-}
-
-export default ListBook
+export default ListBook;

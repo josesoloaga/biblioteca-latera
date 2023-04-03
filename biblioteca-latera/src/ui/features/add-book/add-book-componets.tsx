@@ -1,12 +1,15 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { Book } from "../../../domain/book";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { Book } from '../../../domain/book';
 
 type AddBookProps = {
   handleSetTitulo: (titulo: string) => void;
   handleSetEditorial: (editorial: string) => void;
 };
-export const AddBook: React.FC<AddBookProps> = ({ handleSetTitulo, handleSetEditorial }) => {
+export const AddBook: React.FC<AddBookProps> = ({
+  handleSetTitulo,
+  handleSetEditorial,
+}) => {
   const {
     register,
     handleSubmit,
@@ -24,7 +27,11 @@ export const AddBook: React.FC<AddBookProps> = ({ handleSetTitulo, handleSetEdit
       <label htmlFor="titulo">Titulo:</label>
       {/*  <input type="text" placeholder="escribe aqui..." {...register("titulo", { required: true, maxLength: 80 })} /> */}
       <label htmlFor="editorial"></label>
-      <input type="text" placeholder="escribe aqui..." {...register("editorial", { required: true, maxLength: 80 })} />
+      <input
+        type="text"
+        placeholder="escribe aqui..."
+        {...register('editorial', { required: true, maxLength: 80 })}
+      />
 
       <input type="submit" />
     </form>
