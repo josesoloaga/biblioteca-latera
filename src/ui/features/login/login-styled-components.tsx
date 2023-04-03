@@ -7,9 +7,13 @@ export const StyledContainer = styled.div`
   justify-content: center;
   gap: 50px;
   height: 100vh;
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-  
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
 `;
 
 export const StyledInput = styled.input`

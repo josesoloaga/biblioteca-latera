@@ -8,7 +8,6 @@ export type ListBooksType = {
   books: Book[];
 };
 
-
 export const getCategoryList = (booksArray: Book[]): string[] => {
   const categories: string[] = [];
   booksArray.forEach((book) => {
@@ -19,7 +18,10 @@ export const getCategoryList = (booksArray: Book[]): string[] => {
   return categories;
 };
 
-export const mapFilteredBooks = (books: Book[], selectedCategory: string): Book[] => {
+export const mapFilteredBooks = (
+  books: Book[],
+  selectedCategory: string,
+): Book[] => {
   return selectedCategory === 'all'
     ? books
     : books.filter((book) => book.category === selectedCategory.toUpperCase());

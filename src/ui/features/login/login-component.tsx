@@ -54,43 +54,41 @@ const Login = () => {
             gap: '50px',
           }}
         >
-        <Instructions />
-        <div>
-        <StyledCard>
-          <h1
-            style={{
-              color: '#000',
-              fontSize: '1.4rem',
-              marginBottom: '25px'
-            }}
-          >
-            Login
-          </h1> 
-          <StyledInput
-            onChange={(e) => setEmail(e.target.value)}
-            type="mail"
-            placeholder="Introduce tu email"
-          />
-          <StyledInput
-            type="password"
-            placeholder="Introduce tu password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {error && (
-            <span
-              style={{
-                color: 'red',
-              }}
-            >
-              {errorMessage}{' '}
-            </span>
-          )}
-          <StyledButton onClick={singUp}>Login</StyledButton>
-        </StyledCard>
+          <Instructions />
+          <div>
+            <StyledCard>
+              <h1
+                style={{
+                  color: '#000',
+                  fontSize: '1.4rem',
+                  marginBottom: '25px',
+                }}
+              >
+                Login
+              </h1>
+              <StyledInput
+                onChange={(e) => setEmail(e.target.value)}
+                type="mail"
+                placeholder="Introduce tu email"
+              />
+              <StyledInput
+                type="password"
+                placeholder="Introduce tu password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {error && (
+                <span
+                  style={{
+                    color: 'red',
+                  }}
+                >
+                  {errorMessage}{' '}
+                </span>
+              )}
+              <StyledButton onClick={singUp}>Login</StyledButton>
+            </StyledCard>
+          </div>
         </div>
-        
-        </div>
-        
       </StyledContainer>
     </>
   );

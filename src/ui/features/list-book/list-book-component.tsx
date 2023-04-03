@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import ListItem from './list-item-component';
-import { Book, mapFilteredBooks, getCategoryList, ListBooksType } from '../../../domain/book';
-
-
+import {
+  Book,
+  mapFilteredBooks,
+  getCategoryList,
+  ListBooksType,
+} from '../../../domain/book';
 
 const ListContainer = styled.div`
   display: flex;
@@ -52,8 +55,8 @@ const Nav = styled.nav`
 `;
 const ListBook: React.FC<ListBooksType> = ({ books }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const filteredBooks = mapFilteredBooks(books, selectedCategory)
-  const navItems = getCategoryList(books)
+  const filteredBooks = mapFilteredBooks(books, selectedCategory);
+  const navItems = getCategoryList(books);
 
   return (
     <ListContainer>
@@ -65,30 +68,42 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
             color: '#000',
             marginBottom: '10px',
           }}
-        >Categorias</h1>
+        >
+          Categorias
+        </h1>
         <ul>
-        <li key={'all'} onClick={() => setSelectedCategory('all')}>TODOS</li>
+          <li key={'all'} onClick={() => setSelectedCategory('all')}>
+            TODOS
+          </li>
 
           {navItems.map((item) => (
-            <li key={item} onClick={() => setSelectedCategory(item)}>{item}</li>
+            <li key={item} onClick={() => setSelectedCategory(item)}>
+              {item}
+            </li>
           ))}
-          
         </ul>
       </Nav>
       <div>
-        <div  style={{
+        <div
+          style={{
             fontSize: '20px',
             fontWeight: 500,
             color: '#000',
             marginBottom: '10px',
-          }}>Libros pendientes</div>
-      {filteredBooks.map((book, index) => (
-        <Card key={book.title}>
-          <ListItem id={`${index + 1}`} title={book.title} isDisabled={false} />
-        </Card>
-      ))}
+          }}
+        >
+          Libros pendientes
+        </div>
+        {filteredBooks.map((book, index) => (
+          <Card key={book.title}>
+            <ListItem
+              id={`${index + 1}`}
+              title={book.title}
+              isDisabled={false}
+            />
+          </Card>
+        ))}
       </div>
-     
     </ListContainer>
   );
 };
