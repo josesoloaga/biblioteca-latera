@@ -5,15 +5,11 @@ export const StyledContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   gap: 50px;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    357deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 23%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  height: 100vh;
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  
 `;
 
 export const StyledInput = styled.input`

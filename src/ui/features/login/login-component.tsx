@@ -10,6 +10,7 @@ import {
 } from './login-styled-components';
 import { validateEmail } from '../../../domain/utils';
 import { useAppContext } from '../../../config-adapters/context-provider';
+import Instructions from './instrucciones-component';
 
 const Login = () => {
   const [email, setEmail] = useState<string | undefined>();
@@ -45,7 +46,26 @@ const Login = () => {
     <>
       <StyledContainer data-testid="login-component">
         <StyledTitle>Bienvenido a la Biblioteca Latera </StyledTitle>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '50px',
+          }}
+        >
+        <Instructions />
+        <div>
         <StyledCard>
+          <h1
+            style={{
+              color: '#000',
+              fontSize: '1.4rem',
+              marginBottom: '25px'
+            }}
+          >
+            Login
+          </h1> 
           <StyledInput
             onChange={(e) => setEmail(e.target.value)}
             type="mail"
@@ -67,6 +87,10 @@ const Login = () => {
           )}
           <StyledButton onClick={singUp}>Login</StyledButton>
         </StyledCard>
+        </div>
+        
+        </div>
+        
       </StyledContainer>
     </>
   );
