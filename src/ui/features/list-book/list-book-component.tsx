@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import ListItem from './list-item-component';
 import {
-  Book,
+ 
   mapFilteredBooks,
   getCategoryList,
   ListBooksType,
