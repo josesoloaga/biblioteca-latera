@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 
-export const StyledContainer = styled.div`
+export const StyledContainerForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
   height: 100vh;
+  gap: 10px;
   background-color: #3759f2;
   background-image: linear-gradient(45deg, #3759f2 0%, #99dee6 100%);
 `;
@@ -42,11 +42,7 @@ export const StyledCard = styled.div`
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034);
   background: #fff;
 `;
-export const StyledTitle = styled.h1`
+export const StyledTitle = styled.h3`
   color: #fff;
   font-size: 2rem;
-`;
-
-export const StyledLogo = styled.img`
-  width: 200px;
 `;

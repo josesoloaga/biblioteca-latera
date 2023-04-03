@@ -7,11 +7,16 @@ import './reset.css';
 import HomePage from './pages/Home';
 import LoginPage from './pages/Login';
 import { AppProvider } from './config-adapters/context-provider';
+import DonateBookFormPage from './pages/DonateBookForm';
 //TODO: hacer ruta formulario, pagina y componente ...
 const routes = createBrowserRouter([
   {
     path: '/home',
     element: <HomePage />,
+  },
+  {
+    path: '/donate',
+    element: <DonateBookFormPage />,
   },
   {
     path: '/',

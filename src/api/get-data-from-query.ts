@@ -14,3 +14,14 @@ export const getData = (url: string, callback: Function) => {
       console.log(error.message);
     });
 };
+
+export const postData = (url: string, data: [string]) => {
+  axios
+    .post(url)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};

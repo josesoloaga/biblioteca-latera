@@ -11,7 +11,7 @@ import {
 import { validateEmail } from '../../../domain/utils';
 import { useAppContext } from '../../../config-adapters/context-provider';
 import Instructions from './instrucciones-component';
-import Logo from '../../../assets/logo.jpeg'
+import Logo from '../../../assets/logo.jpeg';
 
 const Login = () => {
   const [email, setEmail] = useState<string | undefined>();

@@ -10,8 +10,8 @@ const Container = styled.div`
   flex-direction: column;
   height: 100vh;
   align-items: center;
-  background-color: #3759F2;
-  background-image: linear-gradient(45deg, #3759F2 0%, #99DEE6 100%); 
+  background-color: #3759f2;
+  background-image: linear-gradient(45deg, #3759f2 0%, #99dee6 100%);
 `;
 
 const Header = styled.header`
