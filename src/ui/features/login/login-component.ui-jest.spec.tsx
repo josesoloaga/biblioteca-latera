@@ -6,23 +6,17 @@ import Login from './login-component';
 import { render, screen } from '@testing-library/react';
 import WrapperTestingProvider from '../../../config-adapters/wrapper-testing-provider/wrapper-testing-provider';
 
-
-  jest.mock('react-router-dom', () => ({
-    ...jest.requireActual('react-router-dom'),
-    useNavigate: jest.fn(),
-  }));
-
-
-
-
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: jest.fn(),
+}));
 
 describe('Login', () => {
   it('Render Login', () => {
     render(
       <WrapperTestingProvider>
         <Login />
-      </WrapperTestingProvider>
-     ,
+      </WrapperTestingProvider>,
     );
     expect(screen.getByTestId('login-component')).toBeInTheDocument();
   });

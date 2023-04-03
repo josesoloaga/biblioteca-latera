@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import ListItem from './list-item-component';
 import { Book } from '../../../domain/book';
+import { getCategoryList } from '../../../domain/utils';
 
 type ListBooksType = {
   books: Book[];
@@ -9,8 +10,7 @@ type ListBooksType = {
 
 const ListContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 40px;
 `;
 
 const Card = styled.div`
@@ -22,19 +22,81 @@ const Card = styled.div`
   padding: 10px;
   width: 400px;
 `;
-
+const Nav = styled.nav`
+  display: flex;
+  box-sizing: content-box;
+  width: 100px;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 10px;
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      font-size: 16px;
+      font-weight: 500;
+      color: #000;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+`;
 const ListBook: React.FC<ListBooksType> = ({ books }) => {
-  //TODO: hacer llamada a bbdd para ver que libros hay como donados y generar el disabled con un filter en la prop
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const filteredBooks =
+    selectedCategory === 'all'
+      ? books
+      : books.filter((book) => book.category === selectedCategory.toUpperCase());
+
+  const navItems = getCategoryList(books)
 
   return (
     <ListContainer>
-      {books.map((book, index) => (
+      <Nav>
+        <h1
+          style={{
+            fontSize: '20px',
+            fontWeight: 500,
+            color: '#000',
+            marginBottom: '10px',
+          }}
+        >Categorias</h1>
+        <ul>
+        <li key={'all'} onClick={() => setSelectedCategory('all')}>TODOS</li>
+
+          {navItems.map((item) => (
+            <li key={item} onClick={() => setSelectedCategory(item)}>{item}</li>
+          ))}
+          
+        </ul>
+      </Nav>
+      <div>
+        <div  style={{
+            fontSize: '20px',
+            fontWeight: 500,
+            color: '#000',
+            marginBottom: '10px',
+          }}>Libros pendientes</div>
+      {filteredBooks.map((book, index) => (
         <Card key={book.title}>
           <ListItem id={`${index + 1}`} title={book.title} isDisabled={false} />
         </Card>
       ))}
+      </div>
+     
     </ListContainer>
   );
 };
-
 export default ListBook;
