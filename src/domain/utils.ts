@@ -6,12 +6,3 @@ export const validateEmail = (email: string): boolean => {
 };
 
 
-export const getCategoryList = (booksArray: Book[]) => {
-  const categories: string[] = [];
-  booksArray.forEach((book) => {
-    if (!categories.includes(book.category)) {
-      categories.push(book.category);
-    }
-  });
-  return categories;
-};

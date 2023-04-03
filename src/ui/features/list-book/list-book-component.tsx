@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import ListItem from './list-item-component';
-import { Book } from '../../../domain/book';
-import { getCategoryList } from '../../../domain/utils';
+import { Book, mapFilteredBooks, getCategoryList, ListBooksType } from '../../../domain/book';
 
-type ListBooksType = {
-  books: Book[];
-};
+
 
 const ListContainer = styled.div`
   display: flex;
@@ -55,11 +52,7 @@ const Nav = styled.nav`
 `;
 const ListBook: React.FC<ListBooksType> = ({ books }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const filteredBooks =
-    selectedCategory === 'all'
-      ? books
-      : books.filter((book) => book.category === selectedCategory.toUpperCase());
-
+  const filteredBooks = mapFilteredBooks(books, selectedCategory)
   const navItems = getCategoryList(books)
 
   return (
