@@ -3,9 +3,8 @@ import { Book } from '../domain/book';
 
 type AppContextValue = {
   user: string | null;
-  books: Book[];
+  book: Book | undefined;
   setUser: (user: string | null) => void;
-  setBooks: (books: Book[]) => void;
   addBook: (book: Book) => void;
 };
 
@@ -14,17 +13,16 @@ const AppContext = createContext<AppContextValue | null>(null);
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const localeUser = localStorage.getItem('user') ?? null;
   const [user, setUser] = useState<string | null>(localeUser);
-  const [books, setBooks] = useState<Book[]>([]);
+  const [book, setBook] = useState<Book | undefined>();
 
   const addBook = (book: Book) => {
-    setBooks([...books, book]);
+    setBook(book);
   };
 
   const value: AppContextValue = {
     user,
-    books,
+    book,
     setUser,
-    setBooks,
     addBook,
   };
 

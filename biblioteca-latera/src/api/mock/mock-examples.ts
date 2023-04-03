@@ -25,5 +25,20 @@ export const createBookListMock = (): Book[] => {
       editorial: 'editorial3',
       donateUser: 'usuario3',
     },
+    {
+      title: 'The Children of Hurin',
+      editorial: 'editorial4',
+      donateUser: 'usuario4',
+    },
+    {
+      title: 'The Fall of Gondolin',
+      editorial: 'editorial5',
+      donateUser: 'usuario5',
+    },
+    {
+      title: 'The History of Middle-earth',
+      editorial: 'editorial6',
+      donateUser: 'usuario6',
+    },
   ];
 };
