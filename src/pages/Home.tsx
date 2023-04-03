@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import ListBook from '../ui/features/list-book/list-book-component';
 import { useAppContext } from '../config-adapters/context-provider';
 import styled from '@emotion/styled';
-import { createBookListMock } from '../api/mock/mock-examples';
 import { Book } from '../domain/book';
 import { DonateBookForm } from '../domain/donateBookForm';
 import { getAllBooks, getDonatedBooks } from '../api/get-books/get-books';
@@ -41,14 +40,21 @@ const HomePage = () => {
       setDonatedBooks(data as DonateBookForm[]);
     });
   }, []);
-//TODO: Limpiar allbooks de todos los titulos en donateBooks (filter/map)
-//TODO: Menu con route para introducir nuevos libros- tipos book api= postBook
+  //TODO: Limpiar allbooks de todos los titulos en donateBooks (filter/map)
+  const filterAllBooks = allBooks.filter((book) => {
+    return donatedBooks.every(
+      (donatedBook) => donatedBook.bookRef !== book.title,
+    );
+  });
+
+  //TODO: Menu con route para introducir nuevos libros- tipos book api= postBook
+
   return (
     <Container>
       <Header>
         <Title>Bienvenido a la biblioteca, {user}!</Title>
       </Header>
-      <ListBook books={allBooks} />
+      <ListBook books={filterAllBooks} />
     </Container>
   );
 };

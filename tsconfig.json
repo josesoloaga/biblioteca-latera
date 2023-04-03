@@ -3,7 +3,7 @@
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable","esnext", "dom", "WebWorker"],
-    "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest",],
+    "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
