@@ -3,10 +3,8 @@
  */
 import '@testing-library/jest-dom/extend-expect';
 import Login from './login-component';
-import { Provider } from 'react-supabase';
-import { supabase } from '../../../api/client';
 import { render, screen } from '@testing-library/react';
-import { AppProvider } from '../../../config-adapters/context-provider';
+import WrapperTestingProvider from '../../../config-adapters/wrapper-testing-provider/wrapper-testing-provider';
 
 
   jest.mock('react-router-dom', () => ({
@@ -21,11 +19,10 @@ import { AppProvider } from '../../../config-adapters/context-provider';
 describe('Login', () => {
   it('Render Login', () => {
     render(
-      <AppProvider>
-      <Provider value={supabase}>
+      <WrapperTestingProvider>
         <Login />
-      </Provider>
-      </AppProvider>,
+      </WrapperTestingProvider>
+     ,
     );
     expect(screen.getByTestId('login-component')).toBeInTheDocument();
   });
