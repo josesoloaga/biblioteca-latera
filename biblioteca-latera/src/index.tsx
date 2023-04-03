@@ -6,6 +6,7 @@ import {  RouterProvider, createBrowserRouter } from "react-router-dom";
 import './reset.css'
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
+import { AppProvider } from "./config-adapters/context-provider";
 const routes = createBrowserRouter([
   {
     path: "/home",
@@ -18,9 +19,11 @@ const routes = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
+    <AppProvider>
     <Provider value={supabase}>
       <RouterProvider router={routes} />
     </Provider>
+    </AppProvider>
   </React.StrictMode>,
 );
 
