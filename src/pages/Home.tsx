@@ -28,9 +28,7 @@ const Title = styled.h1`
 
 const HomePage = () => {
   const { user } = useAppContext();
-
-  const [allBooks, setAllBooks] = useState<Book[]>([]);
-  const [donatedBooks, setDonatedBooks] = useState<DonateBookForm[]>([]);
+  const mockBooks: Book[] = createBookListMock();
 
   useEffect(() => {
     getAllBooks().then((data) => {
@@ -54,7 +52,7 @@ const HomePage = () => {
       <Header>
         <Title>Bienvenido a la biblioteca, {user}!</Title>
       </Header>
-      <ListBook books={filterAllBooks} />
+      <ListBook books={mockBooks} />
     </Container>
   );
 };
