@@ -10,7 +10,7 @@ import {
 } from './donate-from-book-styled-components';
 
 export const DonateBookFormComponent = () => {
-  const { user } = useAppContext();
+  const { user, book } = useAppContext();
   const [name, setName] = useState<string | undefined>();
   const [surName, setSurName] = useState<string | undefined>();
   const [studentName, setStudentName] = useState<string | undefined>();
@@ -18,7 +18,7 @@ export const DonateBookFormComponent = () => {
 
   const donateUp = async () => {
     if (!name || !surName || !user) return;
-    postDataFromDonateBookForm({ name, surName, email: user, studentName });
+    postDataFromDonateBookForm({ name, surName, email: user, bookRef:book?.title ?? "", studentName });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {

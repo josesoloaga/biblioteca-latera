@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ListBook from '../ui/features/list-book/list-book-component';
 import { useAppContext } from '../config-adapters/context-provider';
 import styled from '@emotion/styled';
 import { createBookListMock } from '../api/mock/mock-examples';
 import { Book } from '../domain/book';
+import { DonateBookForm } from '../domain/donateBookForm';
+import { getAllBooks, getDonatedBooks } from '../api/get-books/get-books';
 
 const Container = styled.div`
   display: flex;
@@ -27,14 +29,26 @@ const Title = styled.h1`
 
 const HomePage = () => {
   const { user } = useAppContext();
-  const mockBooks: Book[] = createBookListMock();
 
+  const [allBooks, setAllBooks] = useState<Book[]>([]);
+  const [donatedBooks, setDonatedBooks] = useState<DonateBookForm[]>([]);
+
+  useEffect(() => {
+    getAllBooks().then((data) => {
+      setAllBooks(data as Book[]);
+    });
+    getDonatedBooks().then((data) => {
+      setDonatedBooks(data as DonateBookForm[]);
+    });
+  }, []);
+//TODO: Limpiar allbooks de todos los titulos en donateBooks (filter/map)
+//TODO: Menu con route para introducir nuevos libros- tipos book api= postBook
   return (
     <Container>
       <Header>
         <Title>Bienvenido a la biblioteca, {user}!</Title>
       </Header>
-      <ListBook books={mockBooks} />
+      <ListBook books={allBooks} />
     </Container>
   );
 };

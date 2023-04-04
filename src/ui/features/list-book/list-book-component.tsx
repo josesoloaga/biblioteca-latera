@@ -98,6 +98,7 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
             <ListItem
               id={`${index + 1}`}
               title={book.title}
+              category={book.category}
               isDisabled={false}
             />
           </Card>
