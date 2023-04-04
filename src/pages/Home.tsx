@@ -41,13 +41,14 @@ const HomePage = () => {
     });
   }, []);
   //TODO: Limpiar allbooks de todos los titulos en donateBooks (filter/map)
-  const filterAllBooks = allBooks.filter((book) => {
+  const filterAllBooks = allBooks.filter((book: Book) => {
     return donatedBooks.every(
-      (donatedBook) => donatedBook.bookRef !== book.title,
+      (donatedBook: DonateBookForm) => donatedBook.bookRef !== book.title,
     );
   });
 
   //TODO: Menu con route para introducir nuevos libros- tipos book api= postBook
+
 
   return (
     <Container>

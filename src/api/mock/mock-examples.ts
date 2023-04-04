@@ -14,7 +14,6 @@ export const createBookListMock = (): Book[] => {
     {
       title: 'The Lord of the Rings',
       editorial: 'editorial 1',
-
       category: 'INFANTIL',
     },
     {
