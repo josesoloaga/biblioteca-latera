@@ -14,7 +14,7 @@ export const createBookListMock = (): Book[] => {
     {
       title: 'The Lord of the Rings',
       editorial: 'editorial 1',
- 
+
       category: 'INFANTIL',
     },
     {
@@ -39,6 +39,16 @@ export const createBookListMock = (): Book[] => {
     },
     {
       title: 'The History of Middle-earth',
+      editorial: 'editorial6',
+      category: 'MAYORES',
+    },
+    {
+      title: 'The History ',
+      editorial: 'editorial6',
+      category: 'MAYORES',
+    },
+    {
+      title: ' Middle-earth',
       editorial: 'editorial6',
       category: 'MAYORES',
     },
