@@ -46,5 +46,15 @@ export const createBookListMock = (): Book[] => {
       donateUser: 'usuario6',
       category: 'MAYORES',
     },
+    {
+      title: 'The History ',
+      editorial: 'editorial6',
+      category: 'MAYORES',
+    },
+    {
+      title: ' Middle-earth',
+      editorial: 'editorial6',
+      category: 'MAYORES',
+    },
   ];
 };
