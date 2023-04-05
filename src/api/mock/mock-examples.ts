@@ -14,10 +14,6 @@ export const createBookListMock = (): Book[] => {
     {
       title: 'The Lord of the Rings',
       editorial: 'editorial 1',
-<<<<<<< HEAD
-=======
-      donateUser: 'usuario1',
->>>>>>> 681c7be2 (feat: route donateform navigate/donate seteo book checked)
       category: 'INFANTIL',
     },
     {
@@ -43,7 +39,6 @@ export const createBookListMock = (): Book[] => {
     {
       title: 'The History of Middle-earth',
       editorial: 'editorial6',
-      donateUser: 'usuario6',
       category: 'MAYORES',
     },
     {
