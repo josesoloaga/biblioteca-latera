@@ -31,20 +31,22 @@ const HomePage = () => {
   const { user } = useAppContext();
   const mockBooks: Book[] = createBookListMock();
 
-  const [allBooks, setAllBooks] = useState();
-  const [donatedBooks, setDonatedBooks] = useState();
+  const [allBooks, setAllBooks] = useState<Book[] | null >(mockBooks);
+  const [donatedBooks, setDonatedBooks] = useState<DonateBookForm[] |  null>();
 
   useEffect(() => {
+    user &&
     getAllBooks().then((data) => {
-      setAllBooks(data as Book[]);
+     data?.length ??  setAllBooks(data as Book[]);
     });
+    user &&
     getDonatedBooks().then((data) => {
       setDonatedBooks(data as DonateBookForm[]);
     });
-  }, []);
+  }, [user]);
   //TODO: Limpiar allbooks de todos los titulos en donateBooks (filter/map)
-  const filterAllBooks = allBooks.filter((book: Book) => {
-    return donatedBooks.every(
+  const filterAllBooks = allBooks?.filter((book: Book) => {
+    return donatedBooks?.every(
       (donatedBook: DonateBookForm) => donatedBook.bookRef !== book.title,
     );
   });
@@ -56,7 +58,7 @@ const HomePage = () => {
       <Header>
         <Title>Bienvenido a la biblioteca, {user}!</Title>
       </Header>
-      <ListBook books={mockBooks} />
+      <ListBook books={filterAllBooks ?? []} />
     </Container>
   );
 };
