@@ -33,12 +33,15 @@ export const DonateBookFormComponent = () => {
       bookRef: book?.title ?? '',
       studentName,
     });
+    navigate('/');
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     donateUp();
-    navigate('/');
+    if (error === true) {
+      navigate('/');
+    }
   };
 
   return (
