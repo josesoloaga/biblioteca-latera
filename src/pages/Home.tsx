@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import { Book } from '../domain/book';
 import { DonateBookForm } from '../domain/donateBookForm';
 import { getAllBooks, getDonatedBooks } from '../api/get-books/get-books';
+import { createBookListMock } from '../api/mock/mock-examples';
 
 const Container = styled.div`
   display: flex;
@@ -29,6 +30,9 @@ const Title = styled.h1`
 const HomePage = () => {
   const { user } = useAppContext();
   const mockBooks: Book[] = createBookListMock();
+
+  const [allBooks, setAllBooks] = useState();
+  const [donatedBooks, setDonatedBooks] = useState();
 
   useEffect(() => {
     getAllBooks().then((data) => {
