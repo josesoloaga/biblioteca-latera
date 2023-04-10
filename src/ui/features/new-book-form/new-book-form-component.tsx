@@ -7,6 +7,7 @@ import {
   StyledInput,
   StyledTitle,
 } from './new-book-form-styled-component';
+import { useNavigate } from 'react-router-dom';
 
 export const NewBookForm = () => {
   const [title, setTitle] = useState<string>('');
@@ -15,6 +16,7 @@ export const NewBookForm = () => {
   const [error, setError] = useState<boolean | undefined>();
   const [errorMessage, setErrorMessage] = useState<string>('Revisa los campos');
   const [loadedBook, setLoadedBook] = useState<string>('');
+  const navigate = useNavigate();
 
   const handlerSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
@@ -34,6 +36,11 @@ export const NewBookForm = () => {
     setTimeout(() => {
       setLoadedBook('');
     }, 1500);
+  };
+
+  const handleExitButton = () => {
+    localStorage.removeItem('admin');
+    navigate('/');
   };
 
   return (
@@ -76,14 +83,17 @@ export const NewBookForm = () => {
         {loadedBook && (
           <span
             style={{
-              color:'green'
+              color: 'green',
             }}
-            >
-              {loadedBook}{' '}
+          >
+            {loadedBook}{' '}
           </span>
         )}
         <StyledButton type="submit">GUARDAR</StyledButton>
       </StyledCard>
+      <StyledButton type="button" onClick={handleExitButton}>
+        SALIR{' '}
+      </StyledButton>
     </StyledContainerForm>
   );
 };
