@@ -68,7 +68,7 @@ export const NewBookForm = () => {
           placeholder="Categoria"
           value={category}
           onChange={(e) => {
-            setCategory(e.target.value);
+            setCategory(e.target.value.toUpperCase());
           }}
         />
         {error && (
