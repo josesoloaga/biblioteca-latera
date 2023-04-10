@@ -4,7 +4,6 @@ export const createBookMock = (): Book => {
   return {
     title: 'The Lord of the Rings',
     editorial: 'editorial 1',
-
     category: 'INFANTIL',
   };
 };
