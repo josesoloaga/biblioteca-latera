@@ -37,7 +37,7 @@ const HomePage = () => {
   useEffect(() => {
     user &&
     getAllBooks().then((data) => {
-     data?.length ??  setAllBooks(data as Book[]);
+    setAllBooks(data as Book[]);
     });
     user &&
     getDonatedBooks().then((data) => {
