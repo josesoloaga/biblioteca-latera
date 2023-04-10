@@ -8,7 +8,7 @@ import HomePage from './pages/Home';
 import LoginPage from './pages/Login';
 import { AppProvider } from './config-adapters/context-provider';
 import DonateBookFormPage from './pages/DonateBookForm';
-import { NewBookForm } from './ui/features/new-book-form/new-book-form-component';
+import { NewBookPage } from './pages/NewBook';
 //TODO: hacer ruta formulario, pagina y componente ...
 const routes = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ const routes = createBrowserRouter([
   },
   {
     path: '/new',
-    element: <NewBookForm />
+    element: <NewBookPage />
   },
   {
     path: '/',

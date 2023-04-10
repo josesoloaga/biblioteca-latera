@@ -28,6 +28,11 @@ const Login = () => {
       setErrorMessage('Revisa los campos');
       return;
     }
+    if(email === 'ADMIN' && password === 'BIBLIOADMIN'){
+      navigate('/new');
+      localStorage.setItem('admin', 'true')
+      return;
+    }
 
     if (validateEmail(email)) {
       setError(false);

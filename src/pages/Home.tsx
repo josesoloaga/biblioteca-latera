@@ -6,6 +6,7 @@ import { Book } from '../domain/book';
 import { DonateBookForm } from '../domain/donateBookForm';
 import { getAllBooks, getDonatedBooks } from '../api/get-books/get-books';
 import { createBookListMock } from '../api/mock/mock-examples';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -29,12 +30,16 @@ const Title = styled.h1`
 
 const HomePage = () => {
   const { user } = useAppContext();
+  const navigate = useNavigate()
   const mockBooks: Book[] = createBookListMock();
 
   const [allBooks, setAllBooks] = useState<Book[] | null >(mockBooks);
   const [donatedBooks, setDonatedBooks] = useState<DonateBookForm[] |  null>();
 
   useEffect(() => {
+    if(!user){
+      navigate('/')
+    }
     user &&
     getAllBooks().then((data) => {
     setAllBooks(data as Book[]);
