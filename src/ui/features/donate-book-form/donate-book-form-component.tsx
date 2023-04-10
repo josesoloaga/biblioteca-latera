@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { postDataFromDonateBookForm } from '../../../api/donate-book-form/post-data-from-donate-book-form';
 import { useAppContext } from '../../../config-adapters/context-provider';
+import { useNavigate } from 'react-router-dom';
 import {
   StyledButton,
   StyledCard,
@@ -10,26 +11,39 @@ import {
 } from './donate-from-book-styled-components';
 
 export const DonateBookFormComponent = () => {
-  
   const { user, book } = useAppContext();
   const [name, setName] = useState<string | undefined>();
   const [surName, setSurName] = useState<string | undefined>();
   const [studentName, setStudentName] = useState<string | undefined>();
-  //const [errorMessage, setErrorMessage] = useState<string>('');
+  const [error, setError] = useState<Boolean | undefined>();
+  const [errorMessage, setErrorMessage] = useState<string | undefined>();
+  const navigate = useNavigate();
 
   const donateUp = async () => {
-    if (!name || !surName || !user) return;
-    postDataFromDonateBookForm({ name, surName, email: user, bookRef:book?.title ?? "", studentName });
+    if (!name || !surName || !user) {
+      setError(true);
+      setErrorMessage('Falta tu nombre y apellido');
+      console.log(error);
+      return;
+    }
+    postDataFromDonateBookForm({
+      name,
+      surName,
+      email: user,
+      bookRef: book?.title ?? '',
+      studentName,
+    });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     donateUp();
+    navigate('/');
   };
 
   return (
     <StyledContainerForm onSubmit={(e) => handleSubmit(e)}>
-        <StyledTitle>Donar Libro:</StyledTitle>
+      <StyledTitle>Donar Libro:</StyledTitle>
       <StyledCard>
         <StyledInput
           aria-label="nombre"
@@ -65,6 +79,15 @@ export const DonateBookFormComponent = () => {
           type="text"
           value={user ?? ''}
         />
+        {error && (
+          <span
+            style={{
+              color: 'red',
+            }}
+          >
+            {errorMessage}{' '}
+          </span>
+        )}
         <StyledButton type="submit">ENVIAR</StyledButton>
       </StyledCard>
     </StyledContainerForm>
