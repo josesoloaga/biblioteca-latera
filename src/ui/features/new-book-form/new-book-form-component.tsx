@@ -14,12 +14,12 @@ export const NewBookForm = () => {
   const [category, setCategory] = useState<string>('');
   const [error, setError] = useState<boolean | undefined>();
   const [errorMessage, setErrorMessage] = useState<string>('Revisa los campos');
-
+  const [loadedBook, setLoadedBook] = useState<string>('');
 
   const handlerSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
 
-    if (title.length <= 0 || editorial.length <= 0  || category.length <= 0 ) {
+    if (title.length <= 0 || editorial.length <= 0 || category.length <= 0) {
       setError(true);
       setErrorMessage('Rellena los campos');
       return;
@@ -28,6 +28,12 @@ export const NewBookForm = () => {
     setTitle('');
     setEditorial('');
     setCategory('');
+    setError(false);
+    setLoadedBook('...libro guardado');
+
+    setTimeout(() => {
+      setLoadedBook('');
+    }, 1500);
   };
 
   return (
@@ -67,9 +73,16 @@ export const NewBookForm = () => {
             {errorMessage}{' '}
           </span>
         )}
-        <StyledButton type="submit">
-          GUARDAR
-        </StyledButton>
+        {loadedBook && (
+          <span
+            style={{
+              color:'green'
+            }}
+            >
+              {loadedBook}{' '}
+          </span>
+        )}
+        <StyledButton type="submit">GUARDAR</StyledButton>
       </StyledCard>
     </StyledContainerForm>
   );
