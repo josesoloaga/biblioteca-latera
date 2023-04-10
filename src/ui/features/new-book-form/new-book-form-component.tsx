@@ -15,23 +15,20 @@ export const NewBookForm = () => {
   const [error, setError] = useState<boolean | undefined>();
   const [errorMessage, setErrorMessage] = useState<string>('Revisa los campos');
 
-  const newBookUp = async () => {
-    if (title === '' || editorial === '' || category === '') {
+
+  const handlerSubmit = (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault();
+
+    if (title.length <= 0 || editorial.length <= 0  || category.length <= 0 ) {
       setError(true);
       setErrorMessage('Rellena los campos');
       return;
     }
-  };
-  
-
-  const handlerSubmit = (e: React.FormEvent<HTMLElement>) => {
-    e.preventDefault();
     postBook({ title, editorial, category });
     setTitle('');
     setEditorial('');
     setCategory('');
   };
-
 
   return (
     <StyledContainerForm onSubmit={(e) => handlerSubmit(e)}>
@@ -40,6 +37,7 @@ export const NewBookForm = () => {
         <StyledInput
           type="text"
           placeholder="Titulo"
+          value={title}
           onChange={(e) => {
             setTitle(e.target.value);
           }}
@@ -47,6 +45,7 @@ export const NewBookForm = () => {
         <StyledInput
           type="text"
           placeholder="Editorial"
+          value={editorial}
           onChange={(e) => {
             setEditorial(e.target.value);
           }}
@@ -54,6 +53,7 @@ export const NewBookForm = () => {
         <StyledInput
           type="text"
           placeholder="Categoria"
+          value={category}
           onChange={(e) => {
             setCategory(e.target.value);
           }}
@@ -67,7 +67,7 @@ export const NewBookForm = () => {
             {errorMessage}{' '}
           </span>
         )}
-        <StyledButton type="submit" onClick={newBookUp}>
+        <StyledButton type="submit">
           GUARDAR
         </StyledButton>
       </StyledCard>
