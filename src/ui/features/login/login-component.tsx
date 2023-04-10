@@ -19,7 +19,8 @@ const Login = () => {
   const [error, setError] = useState<boolean | undefined>();
   const [errorMessage, setErrorMessage] = useState<string>('Revisa los campos');
   const { setUser } = useAppContext();
-
+  const adminName = process.env.REACT_APP_ADMIN_NAME;
+  const adminPassword = process.env.REACT_APP_ADMIN_PASSWORD;
   const navigate = useNavigate();
 
   const singUp = async () => {
@@ -28,9 +29,9 @@ const Login = () => {
       setErrorMessage('Revisa los campos');
       return;
     }
-    if(email === 'ADMIN' && password === 'BIBLIOADMIN'){
+    if (email === adminName && password === adminPassword) {
       navigate('/new');
-      localStorage.setItem('admin', 'true')
+      localStorage.setItem('admin', 'true');
       return;
     }
 
