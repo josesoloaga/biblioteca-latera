@@ -8,12 +8,17 @@ type DonatedBook = {
   index: number;
 };
 const Title = styled.h3`
+  font-size: 1.5rem;
+  font-weight: bold;
+  color:indigo;
+`;
+const SubTitle = styled.h2`
   font-size: 1.2rem;
   font-weight: bold;
+  margin-top: 0.3rem;
 `;
 const StyledCard = styled.div`
   width: 300px;
-  font-size: large;
   font-family: sans-serif;
   height: 300px;
   display: flex;
@@ -73,10 +78,10 @@ export const MyDonatedBooksList = () => {
 
   return (
     <StyledCard>
+      <Title>Mis donaciones:</Title>
       <ul>
-        <Title>Mis donaciones:</Title>
         {donatedBooks?.map((book, index) => (
-          <Li key={index}>{book.bookRef}</Li>
+          <Li key={index}><SubTitle>{book.bookRef}</SubTitle></Li>
         ))}
       </ul>
     </StyledCard>

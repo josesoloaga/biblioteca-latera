@@ -7,8 +7,6 @@ import { DonateBookForm } from '../domain/donateBookForm';
 import { getAllBooks, getDonatedBooks } from '../api/get-books/get-books';
 import { createBookListMock } from '../api/mock/mock-examples';
 import { useNavigate } from 'react-router-dom';
-import { MyDonatedBooksList } from '../ui/my-donated-books-list/my-donated-books-list-component';
-
 
 const Container = styled.div`
   display: flex;
@@ -32,25 +30,25 @@ const Title = styled.h1`
 
 const HomePage = () => {
   const { user } = useAppContext();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const mockBooks: Book[] = createBookListMock();
 
-  const [allBooks, setAllBooks] = useState<Book[] | null >(mockBooks);
-  const [donatedBooks, setDonatedBooks] = useState<DonateBookForm[] |  null>();
+  const [allBooks, setAllBooks] = useState<Book[] | null>(mockBooks);
+  const [donatedBooks, setDonatedBooks] = useState<DonateBookForm[] | null>();
 
   useEffect(() => {
-    if(!user){
-      navigate('/')
+    if (!user) {
+      navigate('/');
     }
     user &&
-    getAllBooks().then((data) => {
-    setAllBooks(data as Book[]);
-    });
+      getAllBooks().then((data) => {
+        setAllBooks(data as Book[]);
+      });
     user &&
-    getDonatedBooks().then((data) => {
-      setDonatedBooks(data as DonateBookForm[]);
-    });
-       // eslint-disable-next-line react-hooks/exhaustive-deps
+      getDonatedBooks().then((data) => {
+        setDonatedBooks(data as DonateBookForm[]);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
   const filterAllBooks = allBooks?.filter((book: Book) => {
     return donatedBooks?.every(
@@ -58,14 +56,12 @@ const HomePage = () => {
     );
   });
 
-
   return (
     <Container>
       <Header>
         <Title>Bienvenido a la biblioteca, {user}!</Title>
       </Header>
       <ListBook books={filterAllBooks ?? []} />
-      <MyDonatedBooksList/>
     </Container>
   );
 };

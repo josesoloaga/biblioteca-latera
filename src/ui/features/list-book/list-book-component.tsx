@@ -6,9 +6,11 @@ import {
   getCategoryList,
   ListBooksType,
 } from '../../../domain/book';
+import { MyDonatedBooksList } from '../../my-donated-books-list/my-donated-books-list-component';
 
 const ListContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 40px;
 `;
 
@@ -31,6 +33,8 @@ const Nav = styled.nav`
   border: 1px solid #000;
   border-radius: 4px;
   padding: 10px;
+  background-color: white;
+  font-width: bold;
   ul {
     display: flex;
     flex-direction: column;
@@ -52,6 +56,12 @@ const Nav = styled.nav`
     }
   }
 `;
+const SubTitle = styled.h2`
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 0.3rem;
+`;
+
 const ListBook: React.FC<ListBooksType> = ({ books }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const filteredBooks = mapFilteredBooks(books, selectedCategory);
@@ -83,16 +93,7 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
         </ul>
       </Nav>
       <div>
-        <div
-          style={{
-            fontSize: '20px',
-            fontWeight: 500,
-            color: '#000',
-            marginBottom: '10px',
-          }}
-        >
-          Libros pendientes
-        </div>
+        <SubTitle>Libros pendientes</SubTitle>
         {filteredBooks.map((book, index) => (
           <Card key={book.title}>
             <ListItem
@@ -103,6 +104,9 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
             />
           </Card>
         ))}
+      </div>
+      <div>
+        <MyDonatedBooksList />
       </div>
     </ListContainer>
   );
