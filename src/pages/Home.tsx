@@ -7,6 +7,8 @@ import { DonateBookForm } from '../domain/donateBookForm';
 import { getAllBooks, getDonatedBooks } from '../api/get-books/get-books';
 import { createBookListMock } from '../api/mock/mock-examples';
 import { useNavigate } from 'react-router-dom';
+import { MyDonatedBooksList } from '../ui/my-donated-books-list/my-donated-books-list-component';
+
 
 const Container = styled.div`
   display: flex;
@@ -63,6 +65,7 @@ const HomePage = () => {
         <Title>Bienvenido a la biblioteca, {user}!</Title>
       </Header>
       <ListBook books={filterAllBooks ?? []} />
+      <MyDonatedBooksList/>
     </Container>
   );
 };
