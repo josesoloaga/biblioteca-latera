@@ -13,6 +13,8 @@ const Title = styled.h3`
 `;
 const StyledCard = styled.div`
   width: 300px;
+  font-size: large;
+  font-family: sans-serif;
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -21,10 +23,27 @@ const StyledCard = styled.div`
   border: 1px solid #000;
   border-radius: 5px;
   margin: 10px 0;
-  padding: 0 10px;
+  padding: 10px 5px;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034);
   background: #fff;
-  overflow: hidden;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #757585, #cfcfcf);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #757575, #cfcfcf);
+  }
 `;
 const Li = styled.li`
   display: flex;
@@ -54,8 +73,8 @@ export const MyDonatedBooksList = () => {
 
   return (
     <StyledCard>
-      <Title>Mis donaciones:</Title>
       <ul>
+        <Title>Mis donaciones:</Title>
         {donatedBooks?.map((book, index) => (
           <Li key={index}>{book.bookRef}</Li>
         ))}
