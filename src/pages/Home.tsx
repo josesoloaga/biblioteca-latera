@@ -48,15 +48,14 @@ const HomePage = () => {
     getDonatedBooks().then((data) => {
       setDonatedBooks(data as DonateBookForm[]);
     });
+       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
-  //TODO: Limpiar allbooks de todos los titulos en donateBooks (filter/map)
   const filterAllBooks = allBooks?.filter((book: Book) => {
     return donatedBooks?.every(
       (donatedBook: DonateBookForm) => donatedBook.bookRef !== book.title,
     );
   });
 
-  //TODO: Menu con route para introducir nuevos libros- tipos book api= postBook
 
   return (
     <Container>
