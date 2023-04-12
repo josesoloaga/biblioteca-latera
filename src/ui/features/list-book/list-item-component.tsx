@@ -60,14 +60,14 @@ const ListItem: React.FC<ListItemProps> = ({
     setIsChecked(!isChecked);
   };
   //TODO: hacer envio a context del libro marcado para donar. redirigir a formulario
-  const handleSubmit = () => {
-    addBook({
-      title: title,
-      editorial: '',
-      category: category,
-    });
-    navigate('/donate');
-  };
+ const handleSubmit = ()=>{
+  addBook({
+    title: title,
+    autor: '',
+    category: category,
+  });
+  navigate('/donate')
+ }
   return (
     <>
       <Label isDisabled={isDisabled}>

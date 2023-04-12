@@ -11,7 +11,7 @@ import {
 
 export const NewBookForm = () => {
   const [title, setTitle] = useState<string>('');
-  const [editorial, setEditorial] = useState<string>('');
+  const [autor, setAutor] = useState<string>('');
   const [category, setCategory] = useState<string>('');
   const [error, setError] = useState<boolean | undefined>();
   const [errorMessage, setErrorMessage] = useState<string>('Revisa los campos');
@@ -21,14 +21,14 @@ export const NewBookForm = () => {
   const handlerSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
 
-    if (title.length <= 0 || editorial.length <= 0 || category.length <= 0) {
+    if (title.length <= 0 || autor.length <= 0 || category.length <= 0) {
       setError(true);
       setErrorMessage('Rellena los campos');
       return;
     }
-    postBook({ title, editorial, category });
+    postBook({ title, autor, category });
     setTitle('');
-    setEditorial('');
+    setAutor('');
     setCategory('');
     setError(false);
     setLoadedBook('...libro guardado');
@@ -58,9 +58,9 @@ export const NewBookForm = () => {
         <StyledInput
           type="text"
           placeholder="Editorial"
-          value={editorial}
+          value={autor}
           onChange={(e) => {
-            setEditorial(e.target.value);
+            setAutor(e.target.value);
           }}
         />
         <StyledInput
