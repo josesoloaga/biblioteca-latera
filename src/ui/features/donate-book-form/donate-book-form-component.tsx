@@ -80,7 +80,8 @@ export const DonateBookFormComponent = () => {
           aria-label="email"
           id="email"
           type="text"
-          value={user ?? ''}
+          defaultValue={user ?? ''}
+          disabled
         />
         {error && (
           <span
