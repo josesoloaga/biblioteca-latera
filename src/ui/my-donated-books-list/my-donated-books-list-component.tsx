@@ -74,7 +74,8 @@ export const MyDonatedBooksList = () => {
       }
     };
     filteredData();
-  }, []);
+   
+  }, [user]);
 
   return (
     <StyledCard>

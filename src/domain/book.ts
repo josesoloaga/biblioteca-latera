@@ -1,6 +1,4 @@
-import { DonateBookForm } from './donateBookForm';
 
-import { getDonatedBooks } from '../api/get-books/get-books';
 
 export type Book = {
   title: string;
