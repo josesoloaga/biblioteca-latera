@@ -15,6 +15,15 @@ const Container = styled.div`
   align-items: center;
   background-color: #3759f2;
   background-image: linear-gradient(45deg, #3759f2 0%, #99dee6 100%);
+
+  @media (max-width: 768px) {
+    height: 100%;
+    
+  }
+
+  @media (max-width: 480px) {
+    height: 100%;  
+  }
 `;
 
 const Header = styled.header`

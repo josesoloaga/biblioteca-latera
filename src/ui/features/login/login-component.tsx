@@ -7,6 +7,7 @@ import {
   StyledContainer,
   StyledInput,
   StyledLogo,
+  StyledFlexContainer
 } from './login-styled-components';
 import { validateEmail } from '../../../domain/utils';
 import { useAppContext } from '../../../config-adapters/context-provider';
@@ -53,13 +54,8 @@ const Login = () => {
     <>
       <StyledContainer data-testid="login-component">
         <StyledLogo src={Logo} alt="Logo" />
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '50px',
-          }}
+        <StyledFlexContainer
+         
         >
           <Instructions />
           <div>
@@ -95,7 +91,7 @@ const Login = () => {
               <StyledButton onClick={singUp}>Login</StyledButton>
             </StyledCard>
           </div>
-        </div>
+        </StyledFlexContainer>
       </StyledContainer>
     </>
   );

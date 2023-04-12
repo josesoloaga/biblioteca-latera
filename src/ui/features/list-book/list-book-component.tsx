@@ -12,6 +12,8 @@ const ListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Card = styled.div`
@@ -22,6 +24,14 @@ const Card = styled.div`
   margin: 10px;
   padding: 10px;
   width: 400px;
+
+  @media (max-width: 768px) {
+    width: 320px;
+  }
+
+  @media (max-width: 480px) {
+    width: 280px;
+  } 
 `;
 const Nav = styled.nav`
   display: flex;
@@ -55,11 +65,26 @@ const Nav = styled.nav`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    width: 80%;
+   
+
+    ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      li {
+        font-size: 14px;
+      }
+    }
+  }
 `;
 const SubTitle = styled.h2`
   font-size: 1.3rem;
   font-weight: bold;
   margin-top: 0.3rem;
+  margin-left: 10px;
 `;
 
 const ListBook: React.FC<ListBooksType> = ({ books }) => {

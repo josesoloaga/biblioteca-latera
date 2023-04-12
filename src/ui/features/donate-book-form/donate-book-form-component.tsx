@@ -15,15 +15,14 @@ export const DonateBookFormComponent = () => {
   const [name, setName] = useState<string | undefined>();
   const [surName, setSurName] = useState<string | undefined>();
   const [studentName, setStudentName] = useState<string | undefined>();
-  const [error, setError] = useState<Boolean | undefined>();
+  const [error, setError] = useState<boolean | undefined>();
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const navigate = useNavigate();
 
   const donateUp = async () => {
     if (!name || !surName || !user) {
       setError(true);
-      setErrorMessage('Falta tu nombre y apellido');
-      console.log(error);
+      setErrorMessage('Revisa los campos');
       return;
     }
     postDataFromDonateBookForm({
@@ -39,14 +38,11 @@ export const DonateBookFormComponent = () => {
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     donateUp();
-    if (error === true) {
-      navigate('/');
-    }
   };
 
   return (
     <StyledContainerForm onSubmit={(e) => handleSubmit(e)}>
-      <StyledTitle>Donar Libro:</StyledTitle>
+      <StyledTitle>Donar Libro: {book?.title}</StyledTitle>
       <StyledCard>
         <StyledInput
           aria-label="nombre"
@@ -93,6 +89,7 @@ export const DonateBookFormComponent = () => {
           </span>
         )}
         <StyledButton type="submit">ENVIAR</StyledButton>
+        <StyledButton onClick={()=> navigate('/')}>VOLVER</StyledButton>
       </StyledCard>
     </StyledContainerForm>
   );

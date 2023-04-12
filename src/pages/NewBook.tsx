@@ -7,9 +7,10 @@ export const NewBookPage = () => {
   const navigate = useNavigate()
   useEffect(()=>{
     if(user !== 'true'){
-      navigate('/')
       localStorage.removeItem('admin')
       localStorage.removeItem('user')
+      navigate('/home')
+      navigate('/')
     }
    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[user])

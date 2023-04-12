@@ -9,6 +9,11 @@ export const StyledContainer = styled.div`
   height: 100vh;
   background-color: #3759f2;
   background-image: linear-gradient(45deg, #3759f2 0%, #99dee6 100%);
+
+  @media (max-width: 768px) {
+    height: 100vh;
+  }
+
 `;
 
 export const StyledInput = styled.input`
@@ -18,6 +23,10 @@ export const StyledInput = styled.input`
   border-radius: 5px;
   margin: 10px 0;
   padding: 0 10px;
+
+  @media (max-width: 468px){
+    width: 90%;
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -27,6 +36,9 @@ export const StyledButton = styled.button`
   border-radius: 5px;
   margin: 10px 0;
   padding: 0 10px;
+  @media (max-width: 468px){
+    width: 100%;
+  } 
 `;
 export const StyledCard = styled.div`
   width: 300px;
@@ -41,6 +53,15 @@ export const StyledCard = styled.div`
   padding: 0 10px;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034);
   background: #fff;
+
+  @media (max-width: 768px){
+    width: 100%;
+  }
+
+  @media (max-width: 468px){
+    width: 270px;
+  }
+
 `;
 export const StyledTitle = styled.h1`
   color: #fff;
@@ -50,3 +71,14 @@ export const StyledTitle = styled.h1`
 export const StyledLogo = styled.img`
   width: 200px;
 `;
+
+export const StyledFlexContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+  `

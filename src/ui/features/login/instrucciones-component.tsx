@@ -9,6 +9,14 @@ const InstructionsCard = styled.div`
   width: 400px;
   margin: 0 auto;
   text-align: center;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+
+  @media (max-width: 480px) {
+    width: 60%;
+  }
 `;
 
 const InstructionsTitle = styled.h2`
