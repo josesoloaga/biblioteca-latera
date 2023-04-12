@@ -31,7 +31,7 @@ const Card = styled.div`
 
   @media (max-width: 480px) {
     width: 280px;
-  } 
+  }
 `;
 const Nav = styled.nav`
   display: flex;
@@ -68,7 +68,6 @@ const Nav = styled.nav`
 
   @media (max-width: 768px) {
     width: 80%;
-   
 
     ul {
       flex-direction: row;

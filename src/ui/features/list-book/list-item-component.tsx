@@ -6,7 +6,7 @@ import { useAppContext } from '../../../config-adapters/context-provider';
 type ListItemProps = {
   title: string;
   id: string;
-  category: string
+  category: string;
   isDisabled: boolean;
 };
 
@@ -45,7 +45,12 @@ const DonarButton = styled.button`
   }
 `;
 
-const ListItem: React.FC<ListItemProps> = ({ id, title, category, isDisabled }) => {
+const ListItem: React.FC<ListItemProps> = ({
+  id,
+  title,
+  category,
+  isDisabled,
+}) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const { addBook } = useAppContext();
@@ -55,14 +60,14 @@ const ListItem: React.FC<ListItemProps> = ({ id, title, category, isDisabled }) 
     setIsChecked(!isChecked);
   };
   //TODO: hacer envio a context del libro marcado para donar. redirigir a formulario
- const handleSubmit = ()=>{
-  addBook({
-    title: title,
-    editorial: '',
-    category: category,
-  });
-  navigate('/donate')
- }
+  const handleSubmit = () => {
+    addBook({
+      title: title,
+      editorial: '',
+      category: category,
+    });
+    navigate('/donate');
+  };
   return (
     <>
       <Label isDisabled={isDisabled}>
@@ -82,7 +87,7 @@ const ListItem: React.FC<ListItemProps> = ({ id, title, category, isDisabled }) 
       {isChecked && (
         <DonarButton onClick={() => handleSubmit()}>
           Donar este libro
-        </DonarButton >
+        </DonarButton>
       )}
     </>
   );

@@ -7,7 +7,7 @@ import {
   StyledContainer,
   StyledInput,
   StyledLogo,
-  StyledFlexContainer
+  StyledFlexContainer,
 } from './login-styled-components';
 import { validateEmail } from '../../../domain/utils';
 import { useAppContext } from '../../../config-adapters/context-provider';
@@ -54,9 +54,7 @@ const Login = () => {
     <>
       <StyledContainer data-testid="login-component">
         <StyledLogo src={Logo} alt="Logo" />
-        <StyledFlexContainer
-         
-        >
+        <StyledFlexContainer>
           <Instructions />
           <div>
             <StyledCard>

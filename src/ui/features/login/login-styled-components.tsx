@@ -13,7 +13,6 @@ export const StyledContainer = styled.div`
   @media (max-width: 768px) {
     height: 100vh;
   }
-
 `;
 
 export const StyledInput = styled.input`
@@ -24,7 +23,7 @@ export const StyledInput = styled.input`
   margin: 10px 0;
   padding: 0 10px;
 
-  @media (max-width: 468px){
+  @media (max-width: 468px) {
     width: 90%;
   }
 `;
@@ -36,9 +35,9 @@ export const StyledButton = styled.button`
   border-radius: 5px;
   margin: 10px 0;
   padding: 0 10px;
-  @media (max-width: 468px){
+  @media (max-width: 468px) {
     width: 100%;
-  } 
+  }
 `;
 export const StyledCard = styled.div`
   width: 300px;
@@ -54,14 +53,13 @@ export const StyledCard = styled.div`
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034);
   background: #fff;
 
-  @media (max-width: 768px){
+  @media (max-width: 768px) {
     width: 100%;
   }
 
-  @media (max-width: 468px){
+  @media (max-width: 468px) {
     width: 270px;
   }
-
 `;
 export const StyledTitle = styled.h1`
   color: #fff;
@@ -81,4 +79,4 @@ export const StyledFlexContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
-  `
+`;

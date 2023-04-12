@@ -13,12 +13,13 @@ const StyledContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;`
+  gap: 20px;
+`;
 
 const Title = styled.h3`
   font-size: 1.5rem;
   font-weight: bold;
-  color:indigo;
+  color: indigo;
 `;
 const SubTitle = styled.h2`
   font-size: 1.2rem;
@@ -43,16 +44,13 @@ const StyledCard = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-  height: auto;
-
+    height: auto;
   }
 
   @media (max-width: 468px) {
     width: 290px;
-  height: auto;
-
+    height: auto;
   }
-
 `;
 const Li = styled.li`
   display: flex;
@@ -78,18 +76,20 @@ export const MyDonatedBooksList = () => {
       }
     };
     filteredData();
-   
   }, [user]);
 
-  return (<StyledContainer>
+  return (
+    <StyledContainer>
       <Title>Mis donaciones:</Title>
-    <StyledCard>
-      <ul>
-        {donatedBooks?.map((book, index) => (
-          <Li key={index}><SubTitle>{book.bookRef}</SubTitle></Li>
-        ))}
-      </ul>
-    </StyledCard>
-  </StyledContainer>
+      <StyledCard>
+        <ul>
+          {donatedBooks?.map((book, index) => (
+            <Li key={index}>
+              <SubTitle>{book.bookRef}</SubTitle>
+            </Li>
+          ))}
+        </ul>
+      </StyledCard>
+    </StyledContainer>
   );
 };

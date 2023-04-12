@@ -89,7 +89,7 @@ export const DonateBookFormComponent = () => {
           </span>
         )}
         <StyledButton type="submit">ENVIAR</StyledButton>
-        <StyledButton onClick={()=> navigate('/')}>VOLVER</StyledButton>
+        <StyledButton onClick={() => navigate('/')}>VOLVER</StyledButton>
       </StyledCard>
     </StyledContainerForm>
   );

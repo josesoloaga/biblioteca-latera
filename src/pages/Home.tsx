@@ -18,11 +18,10 @@ const Container = styled.div`
 
   @media (max-width: 768px) {
     height: 100%;
-    
   }
 
   @media (max-width: 480px) {
-    height: 100%;  
+    height: 100%;
   }
 `;
 
