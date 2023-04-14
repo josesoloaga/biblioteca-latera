@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { GetDonatedBooksFiltered } from '../../api/get-books/get-donated-books';
-import { useAppContext } from '../../config-adapters/context-provider';
+import { GetDonatedBooksFiltered } from '../../../api/get-books/get-donated-books';
+import { useAppContext } from '../../../config-adapters/context-provider';
 import styled from '@emotion/styled';
 
 type DonatedBook = {

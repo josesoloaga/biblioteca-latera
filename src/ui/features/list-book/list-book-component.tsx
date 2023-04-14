@@ -6,7 +6,7 @@ import {
   getCategoryList,
   ListBooksType,
 } from '../../../domain/book';
-import { MyDonatedBooksList } from '../../my-donated-books-list/my-donated-books-list-component';
+import { MyDonatedBooksList } from '../my-donated-books-list/my-donated-books-list-component';
 
 const ListContainer = styled.div`
   display: flex;
