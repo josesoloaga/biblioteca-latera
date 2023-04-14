@@ -25,10 +25,10 @@ const SubTitle = styled.h2`
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 0.3rem;
+
 `;
 const StyledCard = styled.div`
   width: 300px;
-  font-family: sans-serif;
   height: 300px;
   display: flex;
   flex-direction: column;

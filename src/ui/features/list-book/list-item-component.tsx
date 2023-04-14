@@ -7,6 +7,7 @@ type ListItemProps = {
   title: string;
   id: string;
   category: string;
+  autor:string;
   isDisabled: boolean;
 };
 
@@ -49,6 +50,7 @@ const ListItem: React.FC<ListItemProps> = ({
   id,
   title,
   category,
+  autor,
   isDisabled,
 }) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
@@ -63,7 +65,7 @@ const ListItem: React.FC<ListItemProps> = ({
  const handleSubmit = ()=>{
   addBook({
     title: title,
-    autor: '',
+    autor: autor,
     category: category,
   });
   navigate('/donate')

@@ -14,6 +14,7 @@ const ListContainer = styled.div`
   gap: 40px;
   align-items: center;
   justify-content: center;
+  font-family: sans-serif;
 `;
 
 const Card = styled.div`
@@ -44,7 +45,7 @@ const Nav = styled.nav`
   border-radius: 4px;
   padding: 10px;
   background-color: white;
-  font-width: bold;
+
   ul {
     display: flex;
     flex-direction: column;
@@ -74,7 +75,8 @@ const Nav = styled.nav`
       flex-wrap: wrap;
       justify-content: space-between;
       li {
-        font-size: 14px;
+        font-size: 16px;
+        font-weight: bold;
       }
     }
   }
@@ -124,6 +126,7 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
               id={`${index + 1}`}
               title={book.title}
               category={book.category}
+              autor={book.autor}
               isDisabled={false}
             />
           </Card>
