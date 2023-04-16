@@ -7,14 +7,17 @@ import { DonateBookForm } from '../domain/donateBookForm';
 import { getAllBooks, getDonatedBooks } from '../api/get-books/get-books';
 import { createBookListMock } from '../api/mock/mock-examples';
 import { useNavigate } from 'react-router-dom';
+import backgroundImage from '../assets/background.jpg';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
   align-items: center;
-  background-color: #3759f2;
-  background-image: linear-gradient(45deg, #3759f2 0%, #99dee6 100%);
+  background-image: url(${backgroundImage});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-opacity: 0.5;
 
   @media (max-width: 768px) {
     height: 100%;

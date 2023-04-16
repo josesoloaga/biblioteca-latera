@@ -7,28 +7,34 @@ type ListItemProps = {
   title: string;
   id: string;
   category: string;
-  autor:string;
+  autor: string;
   isDisabled: boolean;
 };
 
 const Label = styled.label`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
   text-decoration: ${(props: { isDisabled: boolean }) =>
     props.isDisabled ? 'line-through' : 'none'};
 `;
 
 const Number = styled.span`
-  margin-right: 10px;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-weight: bold;
+  opacity: 0.5;
+  position: absolute;
+  left: 0rem;
 `;
 
 const Title = styled.h3`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
+`;
+
+const SubTitle = styled.h3`
+  font-size: 1.rem;
+  color: indigo;
 `;
 
 const DonarButton = styled.button`
@@ -44,6 +50,18 @@ const DonarButton = styled.button`
   &:hover {
     background-color: #00796b;
   }
+`;
+
+const HeadCheck = styled.input`
+  position: absolute;
+  right: 0rem;
+`;
+
+const HeadLabel = styled.div`
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
 `;
 
 const ListItem: React.FC<ListItemProps> = ({
@@ -62,29 +80,32 @@ const ListItem: React.FC<ListItemProps> = ({
     setIsChecked(!isChecked);
   };
   //TODO: hacer envio a context del libro marcado para donar. redirigir a formulario
- const handleSubmit = ()=>{
-  addBook({
-    title: title,
-    autor: autor,
-    category: category,
-  });
-  navigate('/donate')
- }
+  const handleSubmit = () => {
+    addBook({
+      title: title,
+      autor: autor,
+      category: category,
+    });
+    navigate('/donate');
+  };
   return (
     <>
       <Label isDisabled={isDisabled}>
-        <Number>{id}.</Number>
+        <HeadLabel>
+          <Number>{id}.</Number>
+          <HeadCheck
+            style={{
+              width: '15px',
+              height: '15px',
+            }}
+            type="checkbox"
+            checked={isChecked}
+            disabled={isDisabled}
+            onChange={toggleCheck}
+          />
+        </HeadLabel>
         <Title>{title}</Title>
-        <input
-          style={{
-            width: '15px',
-            height: '15px',
-          }}
-          type="checkbox"
-          checked={isChecked}
-          disabled={isDisabled}
-          onChange={toggleCheck}
-        />
+        <SubTitle>{autor}</SubTitle>
       </Label>
       {isChecked && (
         <DonarButton onClick={() => handleSubmit()}>

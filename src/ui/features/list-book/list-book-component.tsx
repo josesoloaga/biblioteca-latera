@@ -14,7 +14,7 @@ const ListContainer = styled.div`
   gap: 40px;
   align-items: center;
   justify-content: center;
-  font-family: sans-serif;
+  font-family: Verdana, Verdana, Geneva, sans-serif;
 `;
 
 const Card = styled.div`

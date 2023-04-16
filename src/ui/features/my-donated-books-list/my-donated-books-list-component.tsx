@@ -13,23 +13,23 @@ const StyledContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 1rem;
 `;
 
 const Title = styled.h3`
   font-size: 1.5rem;
   font-weight: bold;
-  color: indigo;
+  color: #005700;
 `;
 const SubTitle = styled.h2`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   margin-top: 0.3rem;
-
 `;
 const StyledCard = styled.div`
-  width: 300px;
-  height: 300px;
+  width: auto;
+  height: auto;
+  min-height: 3rem
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,8 +38,8 @@ const StyledCard = styled.div`
   border-radius: 5px;
   margin: 10px 0;
   padding: 10px 5px;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034);
-  background: #fff;
+  box-shadow: 0px 0px 2px 1px #9e9eef;
+  background: #ebd140;
   overflow: scroll;
 
   @media (max-width: 768px) {
