@@ -10,37 +10,38 @@ type DonatedBook = {
 
 const StyledContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  background-color: grey;
+  background-color: rgb(32, 179, 179);
 `;
 
 const Title = styled.h3`
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: #005700;
+  color: white;
+  margin: 0.4rem;
+  font-family: Roboto;
 `;
-const SubTitle = styled.h2`
+const BookDonated = styled.h2`
   font-size: 1.1rem;
   font-weight: bold;
-  margin-top: 0.3rem;
+  padding:.5rem;
+  margin: .2rem;
+  font-family: Roboto;
 `;
 const StyledCard = styled.div`
-  width: auto;
-  height: auto;
-  min-height: 3rem
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-warp: warp;
   align-items: center;
   justify-content: center;
-  border: 1px solid #000;
-  border-radius: 5px;
-  margin: 10px 0;
-  padding: 10px 5px;
-  box-shadow: 0px 0px 2px 1px #9e9eef;
-  background: #ebd140;
-  overflow: scroll;
+  width: auto;
+  height: auto;
+  min-height: 3rem;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -56,7 +57,14 @@ const Li = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1px;
+`;
+
+const StyledDonatedBooks = styled.ul`
+  display: flex;
+  flex-direction: row;
+  flex-warp: warp;
+
+  gap: 0.5rem;
 `;
 
 export const MyDonatedBooksList = () => {
@@ -82,13 +90,13 @@ export const MyDonatedBooksList = () => {
     <StyledContainer>
       <Title>Mis donaciones:</Title>
       <StyledCard>
-        <ul>
+        <StyledDonatedBooks>
           {donatedBooks?.map((book, index) => (
             <Li key={index}>
-              <SubTitle>{book.bookRef}</SubTitle>
+              <BookDonated>{book.bookRef}</BookDonated>
             </Li>
           ))}
-        </ul>
+        </StyledDonatedBooks>
       </StyledCard>
     </StyledContainer>
   );

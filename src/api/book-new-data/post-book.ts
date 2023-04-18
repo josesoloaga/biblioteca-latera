@@ -6,7 +6,7 @@ export const postBook = async (payload: Book) => {
 
   const { error } = await supabase
     .from('books')
-    .insert({ title: title, autor: autor, category: category });
+    .insert({ title: title, autor: autor, category: category.toUpperCase() });
 
   return error ? 'error guardando libro' : 'nuevo libro guardado correctamente';
 };

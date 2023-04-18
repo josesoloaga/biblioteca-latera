@@ -14,6 +14,8 @@ type ListItemProps = {
 const Label = styled.label`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
   align-items: center;
   text-decoration: ${(props: { isDisabled: boolean }) =>
     props.isDisabled ? 'line-through' : 'none'};
@@ -30,11 +32,13 @@ const Number = styled.span`
 const Title = styled.h3`
   font-size: 1.3rem;
   font-weight: bold;
+  width: 80%;
 `;
 
 const SubTitle = styled.h3`
-  font-size: 1.rem;
-  color: indigo;
+  font-size: 1rem;
+  color: rgb(51, 50, 49);
+  font-size: large;
 `;
 
 const DonarButton = styled.button`

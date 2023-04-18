@@ -8,58 +8,60 @@ import {
 } from '../../../domain/book';
 import { MyDonatedBooksList } from '../my-donated-books-list/my-donated-books-list-component';
 
+const ListPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-right: 1rem;
+`;
+
 const ListContainer = styled.div`
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 40px;
-  align-items: center;
-  justify-content: center;
-  font-family: Verdana, Verdana, Geneva, sans-serif;
+  width: 100%;
+  margin: auto;
 `;
 
 const Card = styled.div`
-  background-color: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 4px;
+  border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 10px;
-  width: 400px;
-
+  padding: 8px;
+  background-color: rgba(250, 244, 244, 0.8);
+  width: 20%;
   @media (max-width: 768px) {
-    width: 320px;
+    width: 40%;
   }
 
   @media (max-width: 480px) {
-    width: 280px;
+    width: 80%;
   }
 `;
 const Nav = styled.nav`
   display: flex;
   box-sizing: content-box;
-  width: 100px;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
   align-items: center;
-  border: 1px solid #000;
   border-radius: 4px;
-  padding: 10px;
-  background-color: white;
+  padding: 3px;
+  font-family: Roboto;
 
   ul {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-warp: warp;
+    justify-content: space-around;
     align-items: center;
-    gap: 15px;
     width: 100%;
     list-style: none;
-    padding: 0;
-    margin: 0;
+
+
     li {
-      font-size: 16px;
-      font-weight: 500;
-      color: #000;
+      font-size: 1rem;
+      background-color: rgb(227, 231, 235,.9);
+      padding:.8rem;
+      border-radius: 50px;
       cursor: pointer;
       &:hover {
         transform: scale(1.1);
@@ -68,12 +70,13 @@ const Nav = styled.nav`
   }
 
   @media (max-width: 768px) {
-    width: 80%;
+    width: 100%;
 
     ul {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
+
       li {
         font-size: 16px;
         font-weight: bold;
@@ -86,6 +89,7 @@ const SubTitle = styled.h2`
   font-weight: bold;
   margin-top: 0.3rem;
   margin-left: 10px;
+  margin: 1rem;
 `;
 
 const ListBook: React.FC<ListBooksType> = ({ books }) => {
@@ -94,18 +98,18 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
   const navItems = getCategoryList(books);
 
   return (
-    <ListContainer>
+    <ListPage>
+      <h1
+        style={{
+          fontSize: '20px',
+          fontWeight: 500,
+          color: 'white',
+          marginBottom: '10px',
+        }}
+      >
+        Categorias
+      </h1>
       <Nav>
-        <h1
-          style={{
-            fontSize: '20px',
-            fontWeight: 500,
-            color: '#000',
-            marginBottom: '10px',
-          }}
-        >
-          Categorias
-        </h1>
         <ul>
           <li key={'all'} onClick={() => setSelectedCategory('all')}>
             TODOS
@@ -118,8 +122,9 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
           ))}
         </ul>
       </Nav>
-      <div>
-        <SubTitle>Libros pendientes</SubTitle>
+        <MyDonatedBooksList />
+      <SubTitle>Libros pendientes</SubTitle>
+      <ListContainer>
         {filteredBooks.map((book, index) => (
           <Card key={book.title}>
             <ListItem
@@ -131,11 +136,8 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
             />
           </Card>
         ))}
-      </div>
-      <div>
-        <MyDonatedBooksList />
-      </div>
-    </ListContainer>
+      </ListContainer>
+    </ListPage>
   );
 };
 export default ListBook;

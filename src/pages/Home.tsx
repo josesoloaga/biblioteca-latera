@@ -7,36 +7,38 @@ import { DonateBookForm } from '../domain/donateBookForm';
 import { getAllBooks, getDonatedBooks } from '../api/get-books/get-books';
 import { createBookListMock } from '../api/mock/mock-examples';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from '../assets/background.jpg';
+import backgroundImage from '../assets/fondoBibliotecaLatera.png';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   height: 100vh;
-  align-items: center;
   background-image: url(${backgroundImage});
   background-repeat: no-repeat;
   background-size: cover;
-  background-opacity: 0.5;
 
   @media (max-width: 768px) {
     height: 100%;
+    width: 100%;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 425px) {
     height: 100%;
+    width: 100%;
   }
 `;
 
 const Header = styled.header`
   text-align: center;
-  margin-bottom: 30px;
-  margin-top: 30px;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 `;
 
 const Title = styled.h1`
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: bold;
+  font-family: 'Roboto', sans-serif;
 `;
 
 const HomePage = () => {
