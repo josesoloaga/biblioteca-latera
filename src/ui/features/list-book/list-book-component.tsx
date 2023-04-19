@@ -56,11 +56,10 @@ const Nav = styled.nav`
     width: 100%;
     list-style: none;
 
-
     li {
       font-size: 1rem;
-      background-color: rgb(227, 231, 235,.9);
-      padding:.8rem;
+      background-color: rgb(227, 231, 235, 0.9);
+      padding: 0.8rem;
       border-radius: 50px;
       cursor: pointer;
       &:hover {
@@ -122,7 +121,7 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
           ))}
         </ul>
       </Nav>
-        <MyDonatedBooksList />
+      <MyDonatedBooksList />
       <SubTitle>Libros pendientes</SubTitle>
       <ListContainer>
         {filteredBooks.map((book, index) => (

@@ -15,7 +15,6 @@ const Label = styled.label`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 1rem;
   align-items: center;
   text-decoration: ${(props: { isDisabled: boolean }) =>
     props.isDisabled ? 'line-through' : 'none'};
