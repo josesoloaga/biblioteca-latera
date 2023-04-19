@@ -74,7 +74,7 @@ const HomePage = () => {
   return (
     <Container>
       <Header>
-        <Title>Bienvenido a la biblioteca, {user}!</Title>
+        <Title>Bienvenido a la biblioteca, {user?.split('@')[0]}!</Title>
       </Header>
       <ListBook books={filterAllBooks ?? []} />
     </Container>
