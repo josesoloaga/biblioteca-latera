@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import mural from '../../../assets/muralImage.jpg'
+import mural from '../../../assets/muralImage.jpg';
 
 export const StyledContainer = styled.div`
   display: flex;
@@ -9,7 +9,8 @@ export const StyledContainer = styled.div`
   gap: 50px;
   height: 100vh;
   background-color: #3759f2;
-  background-image: url(${mural}); background-repeat: no-repeat;
+  background-image: url(${mural});
+  background-repeat: no-repeat;
   background-size: cover;
   background-color: grey;
 

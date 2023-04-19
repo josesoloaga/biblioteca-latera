@@ -29,8 +29,8 @@ const Title = styled.h3`
 const BookDonated = styled.h2`
   font-size: 1.1rem;
   font-weight: bold;
-  padding:.5rem;
-  margin: .2rem;
+  padding: 0.5rem;
+  margin: 0.2rem;
   font-family: Roboto;
 `;
 const StyledCard = styled.div`

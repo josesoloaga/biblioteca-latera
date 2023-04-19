@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../../config-adapters/context-provider';
+import { capilizefirstLetter } from '../../../domain/utils';
+import { Modal } from 'dynamic-react-components';
 
 type ListItemProps = {
   title: string;
@@ -21,7 +23,7 @@ const Label = styled.label`
 `;
 
 const Number = styled.span`
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
   opacity: 0.5;
   position: absolute;
@@ -38,6 +40,7 @@ const SubTitle = styled.h3`
   font-size: 1rem;
   color: rgb(51, 50, 49);
   font-size: large;
+  width: 80%;
 `;
 
 const DonarButton = styled.button`
@@ -107,13 +110,20 @@ const ListItem: React.FC<ListItemProps> = ({
             onChange={toggleCheck}
           />
         </HeadLabel>
-        <Title>{title}</Title>
-        <SubTitle>{autor}</SubTitle>
+        <Title>{capilizefirstLetter(title)}</Title>
+        <SubTitle>Autor: {capilizefirstLetter(autor)}</SubTitle>
       </Label>
       {isChecked && (
-        <DonarButton onClick={() => handleSubmit()}>
-          Donar este libro
-        </DonarButton>
+        <Modal isOpen={isChecked} onClose={toggleCheck}>
+          <>
+            <Title>{capilizefirstLetter(title)}</Title>
+            <SubTitle>Autor: {capilizefirstLetter(autor)}</SubTitle>
+            <DonarButton onClick={() => handleSubmit()}>
+              Donar este libro
+            </DonarButton>
+            <DonarButton onClick={() => toggleCheck()}>cerrar</DonarButton>
+          </>
+        </Modal>
       )}
     </>
   );

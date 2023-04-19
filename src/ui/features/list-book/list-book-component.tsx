@@ -35,7 +35,7 @@ const Card = styled.div`
   }
 
   @media (max-width: 480px) {
-    width: 80%;
+    width: 100%;
   }
 `;
 const Nav = styled.nav`
@@ -44,6 +44,9 @@ const Nav = styled.nav`
   flex-direction: row;
   gap: 10px;
   align-items: center;
+  width: 100%;
+  justify-content: center;
+
   border-radius: 4px;
   padding: 3px;
   font-family: Roboto;
@@ -51,13 +54,14 @@ const Nav = styled.nav`
   ul {
     display: flex;
     flex-warp: warp;
-    justify-content: space-around;
+    gap: 10px;
     align-items: center;
-    width: 100%;
     list-style: none;
 
     li {
-      font-size: 1rem;
+      font-size: 14px;
+      font-weight: bold;
+
       background-color: rgb(227, 231, 235, 0.9);
       padding: 0.8rem;
       border-radius: 50px;
@@ -77,7 +81,7 @@ const Nav = styled.nav`
       justify-content: space-between;
 
       li {
-        font-size: 16px;
+        font-size: 12px;
         font-weight: bold;
       }
     }
@@ -87,8 +91,7 @@ const SubTitle = styled.h2`
   font-size: 1.3rem;
   font-weight: bold;
   margin-top: 0.3rem;
-  margin-left: 10px;
-  margin: 1rem;
+  margin-bottom: 0.3rem;
 `;
 
 const ListBook: React.FC<ListBooksType> = ({ books }) => {
@@ -98,12 +101,13 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
 
   return (
     <ListPage>
+      <MyDonatedBooksList />
       <h1
         style={{
-          fontSize: '20px',
-          fontWeight: 500,
-          color: 'white',
+          fontSize: '1.3rem',
+          fontWeight: 'bold',
           marginBottom: '10px',
+          marginTop: '10px',
         }}
       >
         Categorias
@@ -116,12 +120,11 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
 
           {navItems.map((item) => (
             <li key={item} onClick={() => setSelectedCategory(item)}>
-              {item}
+              {item.toUpperCase()}
             </li>
           ))}
         </ul>
       </Nav>
-      <MyDonatedBooksList />
       <SubTitle>Libros pendientes</SubTitle>
       <ListContainer>
         {filteredBooks.map((book, index) => (

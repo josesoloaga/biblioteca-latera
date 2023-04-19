@@ -15,7 +15,6 @@ export const createBookListMock = (): Book[] => {
       title: 'The Lord of the Rings',
       autor: 'autor 1',
       category: 'INFANTIL',
-
     },
     {
       title: 'The Hobbit',
@@ -36,7 +35,6 @@ export const createBookListMock = (): Book[] => {
       title: 'The Fall of Gondolin',
       autor: 'editorial5',
       category: 'MAYORES',
-
     },
     {
       title: 'The History of Middle-earth',
