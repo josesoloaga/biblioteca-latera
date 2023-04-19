@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../../config-adapters/context-provider';
-import { capilizefirstLetter } from '../../../../domain/services/utils';
 import { Modal } from 'dynamic-react-components';
+import { capilizeFirstLetter } from '../../../../domain/services/utils';
 
 type ListItemProps = {
   title: string;
@@ -110,14 +110,14 @@ const ListItem: React.FC<ListItemProps> = ({
             onChange={toggleCheck}
           />
         </HeadLabel>
-        <Title>{capilizefirstLetter(title)}</Title>
-        <SubTitle>Autor: {capilizefirstLetter(autor)}</SubTitle>
+        <Title>{capilizeFirstLetter(title)}</Title>
+        <SubTitle>Autor: {capilizeFirstLetter(autor)}</SubTitle>
       </Label>
       {isChecked && (
         <Modal isOpen={isChecked} onClose={toggleCheck}>
           <>
-            <Title>{capilizefirstLetter(title)}</Title>
-            <SubTitle>Autor: {capilizefirstLetter(autor)}</SubTitle>
+            <Title>{capilizeFirstLetter(title)}</Title>
+            <SubTitle>Autor: {capilizeFirstLetter(autor)}</SubTitle>
             <DonarButton onClick={() => handleSubmit()}>
               Donar este libro
             </DonarButton>

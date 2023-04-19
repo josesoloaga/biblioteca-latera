@@ -11,6 +11,8 @@ import {
 import { createBookListMock } from '../../infra/mock/mock-examples';
 import { useNavigate } from 'react-router-dom';
 import backgroundImage from '../../domain/services/assets/fondoBibliotecaLatera.png';
+import { capilizeFirstLetter } from '../../domain/services/utils';
+
 
 const Container = styled.div`
   display: flex;
@@ -74,7 +76,10 @@ const HomePage = () => {
   return (
     <Container>
       <Header>
-        <Title>Bienvenido a la biblioteca, {user?.split('@')[0]}!</Title>
+        <Title>
+          Bienvenido a la biblioteca,{' '}
+          {capilizeFirstLetter(user?.split('@')[0] ?? '')}!
+        </Title>
       </Header>
       <ListBook books={filterAllBooks ?? []} />
     </Container>

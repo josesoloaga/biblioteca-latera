@@ -18,6 +18,6 @@ export function colorRGB() {
     ')';
   return 'rgb' + coolor;
 }
-export const capilizefirstLetter = (data: string): string => {
+export const capilizeFirstLetter = (data: string): string => {
   return data.charAt(0).toUpperCase() + data.slice(1);
 };
