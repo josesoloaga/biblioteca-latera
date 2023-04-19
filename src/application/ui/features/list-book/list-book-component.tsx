@@ -21,7 +21,10 @@ const ListContainer = styled.div`
   flex-wrap: wrap;
   gap: 40px;
   width: 100%;
-  margin: auto;
+  height: 370px;
+  overflow: hidden;
+  overflow-y: scroll;
+  margin-bottom: 40px;
 `;
 
 const Card = styled.div`
