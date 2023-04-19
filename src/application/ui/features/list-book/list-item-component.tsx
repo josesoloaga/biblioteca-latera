@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../../config-adapters/context-provider';
-import { capilizefirstLetter } from '../../../domain/utils';
+import { capilizefirstLetter } from '../../../../domain/services/utils';
 import { Modal } from 'dynamic-react-components';
 
 type ListItemProps = {

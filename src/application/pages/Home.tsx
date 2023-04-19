@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import ListBook from '../ui/features/list-book/list-book-component';
 import { useAppContext } from '../config-adapters/context-provider';
 import styled from '@emotion/styled';
-import { Book } from '../domain/book';
-import { DonateBookForm } from '../domain/donateBookForm';
-import { getAllBooks, getDonatedBooks } from '../api/get-books/get-books';
-import { createBookListMock } from '../api/mock/mock-examples';
+import { Book } from '../../domain/models/book';
+import { DonateBookForm } from '../../domain/models/donateBookForm';
+import {
+  getAllBooks,
+  getDonatedBooks,
+} from '../../infra/api/get-books/get-books';
+import { createBookListMock } from '../../infra/mock/mock-examples';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from '../assets/fondoBibliotecaLatera.png';
+import backgroundImage from '../../domain/services/assets/fondoBibliotecaLatera.png';
 
 const Container = styled.div`
   display: flex;

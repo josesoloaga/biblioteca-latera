@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { GetDonatedBooksFiltered } from '../../../api/get-books/get-donated-books';
+import { GetDonatedBooksFiltered } from '../../../../infra/api/get-books/get-donated-books';
 import { useAppContext } from '../../../config-adapters/context-provider';
 import styled from '@emotion/styled';
 

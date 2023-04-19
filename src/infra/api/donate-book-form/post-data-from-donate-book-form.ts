@@ -1,4 +1,4 @@
-import { DonateBookForm } from '../../domain/donateBookForm';
+import { DonateBookForm } from '../../../domain/models/donateBookForm';
 import { supabase } from '../client';
 
 export const postDataFromDonateBookForm = async (payload: DonateBookForm) => {

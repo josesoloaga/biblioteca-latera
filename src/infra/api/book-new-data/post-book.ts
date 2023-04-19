@@ -1,4 +1,4 @@
-import { Book } from '../../domain/book';
+import { Book } from '../../../domain/models/book';
 import { supabase } from '../client';
 
 export const postBook = async (payload: Book) => {

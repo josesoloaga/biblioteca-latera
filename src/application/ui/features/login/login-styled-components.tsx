@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import mural from '../../../assets/muralImage.jpg';
+import mural from '../../../../domain/services/assets/muralImage.jpg';
 
 export const StyledContainer = styled.div`
   display: flex;

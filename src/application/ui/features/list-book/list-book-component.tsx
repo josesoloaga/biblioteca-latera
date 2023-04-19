@@ -5,7 +5,7 @@ import {
   mapFilteredBooks,
   getCategoryList,
   ListBooksType,
-} from '../../../domain/book';
+} from '../../../../domain/models/book';
 import { MyDonatedBooksList } from '../my-donated-books-list/my-donated-books-list-component';
 
 const ListPage = styled.div`

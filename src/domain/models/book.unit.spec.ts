@@ -1,4 +1,4 @@
-import { createBookListMock } from '../api/mock/mock-examples';
+import { createBookListMock } from '../../infra/mock/mock-examples';
 import { mapFilteredBooks, getCategoryList, Book } from './book';
 
 const ListBooksMock: Book[] = createBookListMock();

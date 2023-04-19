@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createUser } from '../../../api/user-data/create-user';
+import { createUser } from '../../../../infra/api/user-data/create-user';
 import { useNavigate } from 'react-router-dom';
 import {
   StyledButton,
@@ -9,10 +9,10 @@ import {
   StyledLogo,
   StyledFlexContainer,
 } from './login-styled-components';
-import { validateEmail } from '../../../domain/utils';
+import { validateEmail } from '../../../../domain/services/utils';
 import { useAppContext } from '../../../config-adapters/context-provider';
 import Instructions from './instrucciones-component';
-import Logo from '../../../assets/logo.jpeg';
+import Logo from '../../../../domain/services/assets/logo.jpeg';
 
 const Login = () => {
   const [email, setEmail] = useState<string | undefined>();

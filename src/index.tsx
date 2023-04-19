@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-supabase';
-import { supabase } from './api/client';
+import { supabase } from './infra/api/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './reset.css';
-import HomePage from './pages/Home';
-import LoginPage from './pages/Login';
-import { AppProvider } from './config-adapters/context-provider';
-import DonateBookFormPage from './pages/DonateBookForm';
-import { NewBookPage } from './pages/NewBook';
+import HomePage from './application/pages/Home';
+import LoginPage from './application/pages/Login';
+import { AppProvider } from './application/config-adapters/context-provider';
+import DonateBookFormPage from './application/pages/DonateBookForm';
+import { NewBookPage } from './application/pages/NewBook';
 //TODO: hacer ruta formulario, pagina y componente ...
 const routes = createBrowserRouter([
   {

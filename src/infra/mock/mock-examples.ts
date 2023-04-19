@@ -1,5 +1,4 @@
-import { Book } from '../../domain/book';
-import { colorRGB } from '../../domain/utils';
+import { Book } from '../../domain/models/book';
 
 export const createBookMock = (): Book => {
   return {

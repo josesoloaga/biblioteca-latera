@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { Book } from '../domain/book';
+import { Book } from '../../domain/models/book';
 
 type AppContextValue = {
   user: string | null;
