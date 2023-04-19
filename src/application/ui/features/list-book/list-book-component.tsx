@@ -33,6 +33,7 @@ const Card = styled.div`
   padding: 8px;
   background-color: rgba(250, 244, 244, 0.8);
   width: 20%;
+  height: 70px;
   @media (max-width: 768px) {
     width: 40%;
   }
