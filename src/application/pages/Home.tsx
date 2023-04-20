@@ -10,9 +10,8 @@ import {
 } from '../../infra/api/get-books/get-books';
 import { createBookListMock } from '../../infra/mock/mock-examples';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from '../../domain/services/assets/fondoBibliotecaLatera.png';
+import backgroundImage from '../../domain/services/assets/backFinal.jpg';
 import { capilizeFirstLetter } from '../../domain/services/utils';
-
 
 const Container = styled.div`
   display: flex;
@@ -46,12 +45,17 @@ const Title = styled.h1`
 `;
 
 const HomePage = () => {
-  const { user } = useAppContext();
+  const { user, setUser } = useAppContext();
   const navigate = useNavigate();
   const mockBooks: Book[] = createBookListMock();
 
   const [allBooks, setAllBooks] = useState<Book[] | null>(mockBooks);
   const [donatedBooks, setDonatedBooks] = useState<DonateBookForm[] | null>();
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+  };
 
   useEffect(() => {
     if (!user) {
@@ -82,6 +86,7 @@ const HomePage = () => {
         </Title>
       </Header>
       <ListBook books={filterAllBooks ?? []} />
+      <button onClick={handleLogout}>Logout</button>
     </Container>
   );
 };

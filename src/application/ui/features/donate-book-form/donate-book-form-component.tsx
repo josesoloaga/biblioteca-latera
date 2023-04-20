@@ -42,7 +42,7 @@ export const DonateBookFormComponent = () => {
 
   return (
     <StyledContainerForm onSubmit={(e) => handleSubmit(e)}>
-      <StyledTitle>Donar Libro: {book?.title}</StyledTitle>
+      <StyledTitle>Donar: {book?.title}</StyledTitle>
       <StyledCard>
         <StyledInput
           aria-label="nombre"

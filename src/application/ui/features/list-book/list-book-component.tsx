@@ -31,7 +31,7 @@ const Card = styled.div`
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 8px;
-  background-color: rgba(250, 244, 244, 0.8);
+  background-color: rgba(250, 244, 244, 0.9);
   width: 20%;
   height: 70px;
   @media (max-width: 768px) {
@@ -92,10 +92,11 @@ const Nav = styled.nav`
   }
 `;
 const SubTitle = styled.h2`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  margin-top: 0.3rem;
-  margin-bottom: 0.3rem;
+  color: white;
+  margin: 0.4rem;
+  font-family: Roboto;
 `;
 
 const ListBook: React.FC<ListBooksType> = ({ books }) => {
@@ -108,10 +109,11 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
       <MyDonatedBooksList />
       <h1
         style={{
-          fontSize: '1.3rem',
+          fontSize: '1.2rem',
           fontWeight: 'bold',
-          marginBottom: '10px',
-          marginTop: '10px',
+          color: 'white',
+          margin: '0.4rem',
+          fontFamily: 'Roboto',
         }}
       >
         Categorias

@@ -20,6 +20,8 @@ const Label = styled.label`
   align-items: center;
   text-decoration: ${(props: { isDisabled: boolean }) =>
     props.isDisabled ? 'line-through' : 'none'};
+  margin-top: 0.3rem;
+  font-family: Roboto;
 `;
 
 const Number = styled.span`
@@ -39,8 +41,9 @@ const Title = styled.h3`
 const SubTitle = styled.h3`
   font-size: 1rem;
   color: rgb(51, 50, 49);
-  font-size: large;
   width: 80%;
+  font-style: oblique;
+  margin-top: 0.2rem;
 `;
 
 const DonarButton = styled.button`
@@ -111,13 +114,13 @@ const ListItem: React.FC<ListItemProps> = ({
           />
         </HeadLabel>
         <Title>{capilizeFirstLetter(title)}</Title>
-        <SubTitle>Autor: {capilizeFirstLetter(autor)}</SubTitle>
+        <SubTitle> {capilizeFirstLetter(autor)}</SubTitle>
       </Label>
       {isChecked && (
         <Modal isOpen={isChecked} onClose={toggleCheck}>
           <>
             <Title>{capilizeFirstLetter(title)}</Title>
-            <SubTitle>Autor: {capilizeFirstLetter(autor)}</SubTitle>
+            <SubTitle> {capilizeFirstLetter(autor)}</SubTitle>
             <DonarButton onClick={() => handleSubmit()}>
               Donar este libro
             </DonarButton>

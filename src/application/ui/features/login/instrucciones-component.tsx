@@ -2,14 +2,14 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const InstructionsCard = styled.div`
-  background-color: rgb(219, 150, 64);
+background-color: rgb(32, 179, 179);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 400px;
   margin: 0 auto;
   text-align: center;
-  opacity: 0.7;
+  opacity: 0.8;
   font-weight: bold;
   font-family: Roboto, sans-serif;
 
@@ -35,9 +35,7 @@ const Instructions = () => {
     <InstructionsCard>
       <InstructionsTitle>Bienvenido/a</InstructionsTitle>
       <InstructionsMessage>
-        Para registrarse o iniciar sesión, por favor rellene los campos
-        correspondientes. Si es la primera vez que accede, recibirá un correo
-        electrónico para verificar su cuenta.
+        Para registrarse o iniciar sesión, escribe tu email y contraseña
       </InstructionsMessage>
     </InstructionsCard>
   );

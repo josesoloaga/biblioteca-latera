@@ -1,18 +1,17 @@
 import styled from '@emotion/styled';
-import mural from '../../../../domain/services/assets/muralImage.jpg';
+import mural from '../../../../domain/services/assets/newBookBackground.jpg';
 
 export const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 2rem;
   height: 100vh;
-  background-color: #3759f2;
   background-image: url(${mural});
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: grey;
+  font-family: Roboto;
 
   @media (max-width: 768px) {
     height: 100vh;
@@ -71,7 +70,10 @@ export const StyledTitle = styled.h1`
 `;
 
 export const StyledLogo = styled.img`
-  width: 200px;
+  width: 7rem;
+  position: absolute;
+  top: 12px;
+  left: 12px;
 `;
 
 export const StyledFlexContainer = styled.div`

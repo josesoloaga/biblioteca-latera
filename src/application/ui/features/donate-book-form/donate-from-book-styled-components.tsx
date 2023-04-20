@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import backgroundImage from '../../../../domain/services/assets/newBookBackground.jpg';
 
 export const StyledContainerForm = styled.form`
   display: flex;
@@ -8,7 +9,10 @@ export const StyledContainerForm = styled.form`
   height: 100vh;
   gap: 10px;
   background-color: #3759f2;
-  background-image: linear-gradient(45deg, #3759f2 0%, #99dee6 100%);
+  background-image: url(${backgroundImage});
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Roboto;
 `;
 
 export const StyledInput = styled.input`

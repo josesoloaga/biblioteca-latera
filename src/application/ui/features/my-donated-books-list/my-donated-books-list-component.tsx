@@ -15,23 +15,23 @@ const StyledContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background-color: grey;
   background-color: rgb(32, 179, 179);
+  border-radius: 3px;
+  box-shadow: 0px 0px 2px 1px rgba(21, 160, 170, 0.836);
 `;
 
 const Title = styled.h3`
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: white;
   margin: 0.4rem;
   font-family: Roboto;
 `;
 const BookDonated = styled.h2`
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
-  padding: 0.5rem;
-  margin: 0.2rem;
   font-family: Roboto;
+  margin: 0.2rem 0.5rem 0.2rem 0rem;
 `;
 const StyledCard = styled.div`
   display: flex;
@@ -56,15 +56,13 @@ const StyledCard = styled.div`
 const Li = styled.li`
   display: flex;
   align-items: center;
-  justify-content: center;
 `;
 
 const StyledDonatedBooks = styled.ul`
   display: flex;
   flex-direction: row;
-  flex-warp: warp;
-
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: left;
 `;
 
 export const MyDonatedBooksList = () => {
@@ -87,17 +85,23 @@ export const MyDonatedBooksList = () => {
   }, [user]);
 
   return (
-    <StyledContainer>
-      <Title>Mis donaciones:</Title>
-      <StyledCard>
-        <StyledDonatedBooks>
-          {donatedBooks?.map((book, index) => (
-            <Li key={index}>
-              <BookDonated>{book.bookRef}</BookDonated>
-            </Li>
-          ))}
-        </StyledDonatedBooks>
-      </StyledCard>
-    </StyledContainer>
+    <>
+      {!!donatedBooks?.length && (
+        <>
+          <Title>Mis donaciones</Title>
+          <StyledContainer>
+            <StyledCard>
+              <StyledDonatedBooks>
+                {donatedBooks?.map((book, index) => (
+                  <Li key={index}>
+                    <BookDonated>{book.bookRef},</BookDonated>
+                  </Li>
+                ))}
+              </StyledDonatedBooks>
+            </StyledCard>
+          </StyledContainer>
+        </>
+      )}
+    </>
   );
 };
