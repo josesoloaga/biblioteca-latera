@@ -94,7 +94,7 @@ const Nav = styled.nav`
 const SubTitle = styled.h2`
   font-size: 1.2rem;
   font-weight: bold;
-  color: white;
+  color: black;
   margin: 0.4rem;
   font-family: Roboto;
 `;
@@ -111,7 +111,7 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
         style={{
           fontSize: '1.2rem',
           fontWeight: 'bold',
-          color: 'white',
+          color: 'black',
           margin: '0.4rem',
           fontFamily: 'Roboto',
         }}

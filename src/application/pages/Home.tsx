@@ -14,6 +14,7 @@ import backgroundImage from '../../domain/services/assets/backFinal.jpg';
 import { capilizeFirstLetter } from '../../domain/services/utils';
 
 const Container = styled.div`
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,6 +43,19 @@ const Title = styled.h1`
   font-size: 2rem;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
+`;
+
+const ButtonLogout = styled.button`
+  width: 5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgb(44, 170, 187);
+  font-weight: bold;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 0px 2px 1px rgb(36, 145, 160);
 `;
 
 const HomePage = () => {
@@ -86,7 +100,7 @@ const HomePage = () => {
         </Title>
       </Header>
       <ListBook books={filterAllBooks ?? []} />
-      <button onClick={handleLogout}>Logout</button>
+      <ButtonLogout onClick={handleLogout}>Logout</ButtonLogout>
     </Container>
   );
 };
