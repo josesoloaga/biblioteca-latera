@@ -5,6 +5,7 @@ import { NewBookForm } from '../ui/features/new-book-form/new-book-form-componen
 export const NewBookPage = () => {
   const user = localStorage.getItem('admin') ?? 'false';
   const navigate = useNavigate();
+
   useEffect(() => {
     if (user !== 'true') {
       localStorage.removeItem('admin');
@@ -14,5 +15,10 @@ export const NewBookPage = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
-  return <NewBookForm />;
+  return (
+    <>
+      <NewBookForm />
+
+    </>
+  );
 };

@@ -43,6 +43,10 @@ export const NewBookForm = () => {
     navigate('/');
   };
 
+  const handleDonados = () => {
+    navigate('/donatedlist');
+  };
+
   return (
     <StyledContainerForm onSubmit={(e) => handlerSubmit(e)}>
       <StyledTitle>Añadir Libro:</StyledTitle>
@@ -94,6 +98,7 @@ export const NewBookForm = () => {
       <StyledButton type="button" onClick={handleExitButton}>
         SALIR{' '}
       </StyledButton>
+      <StyledButton onClick={handleDonados}>Libros Donados</StyledButton>
     </StyledContainerForm>
   );
 };

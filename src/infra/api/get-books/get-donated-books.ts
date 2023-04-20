@@ -9,3 +9,11 @@ export const GetDonatedBooksFiltered = async (user: string | null) => {
     return book.bookRef;
   });
 };
+
+
+export const getDonatedBooks = async () => {
+  const { data } = await supabase.from('donatedBooks').select();
+  console.log(data);
+  return data;
+  
+};
