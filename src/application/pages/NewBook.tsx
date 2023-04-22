@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NewBookForm } from '../ui/features/new-book-form/new-book-form-component';
 
-export const NewBookPage = () => {
+const NewBookPage = () => {
   const user = localStorage.getItem('admin') ?? 'false';
   const navigate = useNavigate();
 
@@ -21,3 +21,5 @@ export const NewBookPage = () => {
     </>
   );
 };
+
+export default NewBookPage;

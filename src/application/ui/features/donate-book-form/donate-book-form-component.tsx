@@ -27,10 +27,10 @@ export const DonateBookFormComponent = () => {
     }
     postDataFromDonateBookForm({
       name,
-      surName,
+      surname: surName,
       email: user,
       bookRef: book?.title ?? '',
-      studentName,
+      studentname: studentName,
     });
     navigate('/');
   };

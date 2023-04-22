@@ -38,12 +38,14 @@ export const NewBookForm = () => {
     }, 1500);
   };
 
-  const handleExitButton = () => {
+  const handleExitButton = (e: React.FormEvent<HTMLElement> ) => {
+    e.preventDefault();
     localStorage.removeItem('admin');
     navigate('/');
   };
 
-  const handleDonados = () => {
+  const handleDonados = (e: React.FormEvent<HTMLElement> ) => {
+    e.preventDefault();
     navigate('/donatedlist');
   };
 
@@ -95,10 +97,10 @@ export const NewBookForm = () => {
         )}
         <StyledButton type="submit">GUARDAR</StyledButton>
       </StyledCard>
-      <StyledButton type="button" onClick={handleExitButton}>
+      <StyledButton type="button" onClick={(e)=>handleExitButton(e)}>
         SALIR{' '}
       </StyledButton>
-      <StyledButton onClick={handleDonados}>Libros Donados</StyledButton>
+      <StyledButton onClick={(e)=>handleDonados(e)}>Libros Donados</StyledButton>
     </StyledContainerForm>
   );
 };
