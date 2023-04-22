@@ -11,7 +11,10 @@ export const DonatedListAdminPage: React.FC =  () => {
     const bookDonatedData = async () => {
         await getDonatedBooks().then((data) => {
           setBookDonatedListAdmin(data as DonateBookForm[]);
-        });
+        }).catch((error)=>{
+            console.log(error);
+
+        })
       };
     
       useEffect(() => {

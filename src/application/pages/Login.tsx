@@ -3,7 +3,7 @@ import Login from '../ui/features/login/login-component';
 import { useAppContext } from '../config-adapters/context-provider';
 import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
+const LoginPage: React.FC = () => {
   const { user } = useAppContext();
   const navigate = useNavigate();
 

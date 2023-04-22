@@ -58,7 +58,7 @@ const ButtonLogout = styled.button`
   box-shadow: 0px 0px 2px 1px rgb(36, 145, 160);
 `;
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const { user, setUser } = useAppContext();
   const navigate = useNavigate();
   const mockBooks: Book[] = createBookListMock();
