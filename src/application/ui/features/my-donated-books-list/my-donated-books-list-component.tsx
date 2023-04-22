@@ -1,12 +1,6 @@
-import { useState, useEffect } from 'react';
-import { GetDonatedBooksFiltered } from '../../../../infra/api/get-books/get-donated-books';
-import { useAppContext } from '../../../config-adapters/context-provider';
 import styled from '@emotion/styled';
+import { DonateBookForm } from '../../../../domain/models/donateBookForm';
 
-type DonatedBook = {
-  bookRef: string;
-  index: number;
-};
 
 const StyledContainer = styled.div`
   display: flex;
@@ -64,25 +58,12 @@ const StyledDonatedBooks = styled.ul`
   flex-wrap: wrap;
   justify-content: left;
 `;
+type MyDonatedBooksListProps = {
+  donatedBooks: DonateBookForm[];
+}
 
-export const MyDonatedBooksList = () => {
-  const { user } = useAppContext();
-  const [donatedBooks, setDonatedBooks] = useState<DonatedBook[]>();
+const MyDonatedBooksList: React.FC<MyDonatedBooksListProps> = ({donatedBooks}) => {
 
-  useEffect(() => {
-    const filteredData = async () => {
-      try {
-        const data = await GetDonatedBooksFiltered(user);
-
-        if (Array.isArray(data)) {
-          setDonatedBooks(data.map((bookRef, index) => ({ bookRef, index })));
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    filteredData();
-  }, [user]);
 
   return (
     <>
@@ -92,8 +73,8 @@ export const MyDonatedBooksList = () => {
           <StyledContainer>
             <StyledCard>
               <StyledDonatedBooks>
-                {donatedBooks?.map((book, index) => (
-                  <Li key={index}>
+                {donatedBooks?.map((book) => (
+                  <Li key={book.bookRef}>
                     <BookDonated>{book.bookRef},</BookDonated>
                   </Li>
                 ))}
@@ -105,3 +86,6 @@ export const MyDonatedBooksList = () => {
     </>
   );
 };
+
+
+export default MyDonatedBooksList;

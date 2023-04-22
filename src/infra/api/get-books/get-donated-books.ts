@@ -1,6 +1,6 @@
 import { supabase } from '../client';
 
-export const GetDonatedBooksFiltered = async (user: string | null) => {
+export const getDonatedBooksFiltered = async (user: string | null) => {
   const { data } = await supabase
     .from('donatedBooks')
     .select()

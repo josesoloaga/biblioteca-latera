@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import ListItem from './list-item-component';
 import {
@@ -6,7 +6,10 @@ import {
   getCategoryList,
   ListBooksType,
 } from '../../../../domain/models/book';
-import { MyDonatedBooksList } from '../my-donated-books-list/my-donated-books-list-component';
+import  MyDonatedBooksList  from '../my-donated-books-list/my-donated-books-list-component';
+import { useAppContext } from '../../../config-adapters/context-provider';
+import { DonateBookForm } from '../../../../domain/models/donateBookForm';
+import { getDonatedBooksFiltered } from '../../../../infra/api/get-books/get-donated-books';
 
 const ListPage = styled.div`
   display: flex;
@@ -103,10 +106,27 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const filteredBooks = mapFilteredBooks(books, selectedCategory);
   const navItems = getCategoryList(books);
+  const { user } = useAppContext();
+  const [donatedBooks, setDonatedBooks] = useState<DonateBookForm[]>();
+
+  const filteredData = async () => {
+   await getDonatedBooksFiltered(user).then((data)=>{
+
+     setDonatedBooks(data);
+   });
+
+     
+    
+  };
+  useEffect(() => {
+    filteredData();
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   return (
     <ListPage>
-      <MyDonatedBooksList />
+      <MyDonatedBooksList donatedBooks={donatedBooks ?? []} />
       <h1
         style={{
           fontSize: '1.2rem',
