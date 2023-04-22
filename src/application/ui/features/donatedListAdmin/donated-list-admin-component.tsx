@@ -1,15 +1,8 @@
-import { useEffect, useState } from 'react';
-import { getDonatedBooks } from '../../../../infra/api/get-books/get-donated-books';
+
 import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { DonateBookForm } from '../../../../domain/models/donateBookForm';
 
-type DonateBookForm = {
-  name: string;
-  surname: string;
-  email: string;
-  bookRef: string;
-  studentname?: string;
-};
 
 const StyledButton = styled.button`
   width: 6rem;
@@ -39,35 +32,23 @@ const StyledNameBook = styled.h2`
   font-weight: bold;
 `;
 
-export const DonatedListAdminComponent = () => {
-  const [bookDonatedListAdmin, setBookDonatedListAdmin] = useState<
-    DonateBookForm[]
-  >([]);
+type DonatedListAdminPageProps = {
+  bookDonatedListAdmin: DonateBookForm[];
+}
+
+const DonatedListAdminComponent: React.FC<DonatedListAdminPageProps> = ({bookDonatedListAdmin}) => {
 
   const navigate = useNavigate();
 
   const handleBack = () => {
     navigate('/new');
   };
+  
 
-  useEffect(() => {
-    const bookDonatedData = async () => {
-      try {
-        const data = await getDonatedBooks();
-        if (Array.isArray(data)) {
-          setBookDonatedListAdmin(data as DonateBookForm[]);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    bookDonatedData();
-  }, []);
 
   return (
     <StyledContainerDonated>
-      {Array.isArray(bookDonatedListAdmin) &&
-      bookDonatedListAdmin.length > 0 ? (
+      {bookDonatedListAdmin.length ? (
         bookDonatedListAdmin.map(
           (donatedBook: DonateBookForm, index: number) => (
             <StyledCardDonated key={index}>
@@ -89,3 +70,6 @@ export const DonatedListAdminComponent = () => {
     </StyledContainerDonated>
   );
 };
+
+
+export default DonatedListAdminComponent;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const InstructionsCard = styled.div`
-background-color: rgb(32, 179, 179);
+  background-color: rgb(32, 179, 179);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

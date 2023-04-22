@@ -18,7 +18,6 @@ export const NewBookPage = () => {
   return (
     <>
       <NewBookForm />
-
     </>
   );
 };

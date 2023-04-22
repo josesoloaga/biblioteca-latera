@@ -1,7 +1,7 @@
 export type DonateBookForm = {
   name: string;
-  surName: string;
+  surname: string;
   email: string;
   bookRef: string;
-  studentName?: string;
+  studentname?: string;
 };

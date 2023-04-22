@@ -30,7 +30,7 @@ const routes = createBrowserRouter([
   },
   {
     path: '/donatedList',
-    element: <DonatedListAdminComponent/>,
+    element: <DonatedListAdminComponent />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
