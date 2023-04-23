@@ -117,35 +117,37 @@ const ListItem: React.FC<ListItemProps> = ({
         <SubTitle> {capilizeFirstLetter(autor)}</SubTitle>
       </Label>
       {isChecked && (
-        <Modal isOpen={isChecked} onClose={toggleCheck} title='Vas a donar este libro' withHeader footer={
-          <div style={
-            {
-              display: 'flex',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-              width: '100%'
-
-                        }
-          }>
-            <DonarButton onClick={() => toggleCheck()}>Cerrar</DonarButton>
-           <DonarButton onClick={() => handleSubmit()}>
-              Donar
-            </DonarButton>
-          </div>
-        }
-        withFooter
+        <Modal
+          isOpen={isChecked}
+          onClose={toggleCheck}
+          title="Vas a donar este libro"
+          withHeader
+          footer={
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+                alignItems: 'center',
+                width: '100%',
+              }}
+            >
+              <DonarButton onClick={() => toggleCheck()}>Cerrar</DonarButton>
+              <DonarButton onClick={() => handleSubmit()}>Donar</DonarButton>
+            </div>
+          }
+          withFooter
         >
-          <div style={{
-            display: 'flex',
-            width: '300px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column'
-
-          }}>
+          <div
+            style={{
+              display: 'flex',
+              width: '300px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'column',
+            }}
+          >
             <Title>{capilizeFirstLetter(title)}</Title>
             <SubTitle> {capilizeFirstLetter(autor)}</SubTitle>
-           
           </div>
         </Modal>
       )}

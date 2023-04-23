@@ -6,7 +6,7 @@ import {
   getCategoryList,
   ListBooksType,
 } from '../../../../domain/models/book';
-import  MyDonatedBooksList  from '../my-donated-books-list/my-donated-books-list-component';
+import MyDonatedBooksList from '../my-donated-books-list/my-donated-books-list-component';
 import { useAppContext } from '../../../config-adapters/context-provider';
 import { DonateBookForm } from '../../../../domain/models/donateBookForm';
 import { getDonatedBooksFiltered } from '../../../../infra/api/get-books/get-donated-books';
@@ -110,18 +110,14 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
   const [donatedBooks, setDonatedBooks] = useState<DonateBookForm[]>();
 
   const filteredData = async () => {
-   await getDonatedBooksFiltered(user).then((data)=>{
-
-     setDonatedBooks(data);
-   });
-
-     
-    
+    await getDonatedBooksFiltered(user).then((data) => {
+      setDonatedBooks(data);
+    });
   };
   useEffect(() => {
     filteredData();
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (

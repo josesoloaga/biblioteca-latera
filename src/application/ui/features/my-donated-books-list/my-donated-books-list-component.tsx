@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { DonateBookForm } from '../../../../domain/models/donateBookForm';
 
-
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -60,11 +59,11 @@ const StyledDonatedBooks = styled.ul`
 `;
 type MyDonatedBooksListProps = {
   donatedBooks: DonateBookForm[];
-}
+};
 
-const MyDonatedBooksList: React.FC<MyDonatedBooksListProps> = ({donatedBooks}) => {
-
-
+const MyDonatedBooksList: React.FC<MyDonatedBooksListProps> = ({
+  donatedBooks,
+}) => {
   return (
     <>
       {!!donatedBooks?.length && (
@@ -86,6 +85,5 @@ const MyDonatedBooksList: React.FC<MyDonatedBooksListProps> = ({donatedBooks}) =
     </>
   );
 };
-
 
 export default MyDonatedBooksList;

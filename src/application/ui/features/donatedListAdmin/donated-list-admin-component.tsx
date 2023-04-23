@@ -1,8 +1,6 @@
-
 import { useNavigate } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { DonateBookForm } from '../../../../domain/models/donateBookForm';
-
 
 const StyledButton = styled.button`
   width: 6rem;
@@ -34,17 +32,16 @@ const StyledNameBook = styled.h2`
 
 type DonatedListAdminPageProps = {
   bookDonatedListAdmin: DonateBookForm[];
-}
+};
 
-const DonatedListAdminComponent: React.FC<DonatedListAdminPageProps> = ({bookDonatedListAdmin}) => {
-
+const DonatedListAdminComponent: React.FC<DonatedListAdminPageProps> = ({
+  bookDonatedListAdmin,
+}) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
     navigate('/new');
   };
-  
-
 
   return (
     <StyledContainerDonated>
@@ -70,6 +67,5 @@ const DonatedListAdminComponent: React.FC<DonatedListAdminPageProps> = ({bookDon
     </StyledContainerDonated>
   );
 };
-
 
 export default DonatedListAdminComponent;
