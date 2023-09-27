@@ -20,7 +20,10 @@ export const StyledContainerDonated = styled.ul`
 `;
 
 export const StyledCardDonated = styled.li`
-  margin: 0.6rem;
+  margin: .6rem;
+  border: 1px solid black;
+  border-radius: .4rem;
+  padding: .4rem
 `;
 
 export const StyledNameBook = styled.h2`

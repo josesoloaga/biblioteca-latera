@@ -95,7 +95,7 @@ const HomePage: React.FC = () => {
     <Container>
       <Header>
         <Title>
-          Bienvenido a la biblioteca,{' '}
+          Bienvenido a la biblioteca,
           {capilizeFirstLetter(user?.split('@')[0] ?? '')}!
         </Title>
       </Header>

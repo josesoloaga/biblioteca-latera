@@ -21,6 +21,8 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
 
   const filteredData = async () => {
     await getDonatedBooksFiltered(user).then((data) => {
+
+      
       setDonatedBooks(data);
     });
   };
@@ -50,8 +52,8 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
             TODOS
           </li>
 
-          {navItems.map((item) => (
-            <li key={item} onClick={() => setSelectedCategory(item)}>
+          {navItems.map((item,index) => (
+            <li key={index} onClick={() => setSelectedCategory(item)}>
               {item.toUpperCase()}
             </li>
           ))}
@@ -60,7 +62,7 @@ const ListBook: React.FC<ListBooksType> = ({ books }) => {
       <SubTitle>Libros pendientes</SubTitle>
       <ListContainer>
         {filteredBooks.map((book, index) => (
-          <Card key={book.title}>
+          <Card key={index}>
             <ListItem
               id={`${index + 1}`}
               title={book.title}

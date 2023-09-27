@@ -41,7 +41,7 @@ const Login = () => {
       setUser(email);
       localStorage.setItem('user', email);
       const logedUser = createUser({ email, password });
-      console.log(logedUser);
+
 
       navigate('/home');
     } else {

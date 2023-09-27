@@ -23,10 +23,10 @@ const DonatedListAdminComponent: React.FC = () => {
       try {
         const data = await getDonatedBooks();
         if (data) {
-          console.log(data);
+
           setBookDonatedListAdmin(data);
         } else {
-          console.log('No se encontraron datos de donaciones.');
+          console.error('No se encontraron datos de donaciones.');
         }
       } catch (error) {
         console.error('Error fetching donated books:', error);
