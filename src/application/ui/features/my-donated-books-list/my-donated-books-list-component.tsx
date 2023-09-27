@@ -1,6 +1,12 @@
 import { DonateBookForm } from '../../../../domain/models/donateBookForm';
-import { BookDonated, Li, StyledCard, StyledContainer, StyledDonatedBooks, Title } from './my-donated-books-list-styled-component';
-
+import {
+  BookDonated,
+  Li,
+  StyledCard,
+  StyledContainer,
+  StyledDonatedBooks,
+  Title,
+} from './my-donated-books-list-styled-component';
 
 type MyDonatedBooksListProps = {
   donatedBooks: DonateBookForm[];
@@ -17,8 +23,8 @@ const MyDonatedBooksList: React.FC<MyDonatedBooksListProps> = ({
           <StyledContainer>
             <StyledCard>
               <StyledDonatedBooks>
-                {donatedBooks?.map((book) => (
-                  <Li key={book.bookRef}>
+                {donatedBooks?.map((book, index) => (
+                  <Li key={book.bookRef + index}>
                     <BookDonated>{book.bookRef},</BookDonated>
                   </Li>
                 ))}

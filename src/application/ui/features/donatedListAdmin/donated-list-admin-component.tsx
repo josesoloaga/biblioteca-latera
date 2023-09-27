@@ -1,21 +1,40 @@
 import { useNavigate } from 'react-router-dom';
 import { DonateBookForm } from '../../../../domain/models/donateBookForm';
-import { StyledButton, StyledCardDonated, StyledContainerDonated, StyledNameBook } from './donated-list-admin.styled-component';
+import {
+  StyledButton,
+  StyledCardDonated,
+  StyledContainerDonated,
+  StyledNameBook,
+} from './donated-list-admin.styled-component';
+import { getDonatedBooks } from '../../../../infra/api/get-books/get-books';
+import { useEffect, useState } from 'react';
 
 
-
-type DonatedListAdminPageProps = {
-  bookDonatedListAdmin: DonateBookForm[];
-};
-
-const DonatedListAdminComponent: React.FC<DonatedListAdminPageProps> = ({
-  bookDonatedListAdmin,
-}) => {
+const DonatedListAdminComponent: React.FC = () => {
+  const [bookDonatedListAdmin, setBookDonatedListAdmin] = useState<any[]>([]);
   const navigate = useNavigate();
 
   const handleBack = () => {
     navigate('/new');
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getDonatedBooks();
+        if (data) {
+          console.log(data);
+          setBookDonatedListAdmin(data);
+        } else {
+          console.log('No se encontraron datos de donaciones.');
+        }
+      } catch (error) {
+        console.error('Error fetching donated books:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <StyledContainerDonated>

@@ -13,5 +13,6 @@ export const getDonatedBooksFiltered = async (user: string | null) => {
 export const getDonatedBooks = async () => {
   const { data } = await supabase.from('donatedBooks').select();
   console.log(data);
+
   return data;
 };

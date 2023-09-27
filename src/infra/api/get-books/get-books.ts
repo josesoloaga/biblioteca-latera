@@ -8,5 +8,7 @@ export const getAllBooks = async () => {
 
 export const getDonatedBooks = async () => {
   const { data } = await supabase.from('donatedBooks').select();
+  console.log(data);
+  
   return data;
 };
