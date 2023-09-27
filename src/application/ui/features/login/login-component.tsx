@@ -42,7 +42,6 @@ const Login = () => {
       localStorage.setItem('user', email);
       const logedUser = createUser({ email, password });
 
-
       navigate('/home');
     } else {
       setError(true);
